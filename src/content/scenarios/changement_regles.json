@@ -1,0 +1,161 @@
+{
+  "id": "changement_regles",
+  "theme": "Changement de règles",
+  "stake": "Deux semaines avant l'événement, une nouvelle règle interdit une partie de ce qui était prévu.",
+  "situation": "Une association prépare un marché de créateurs sur le campus, avec quarante stands dont douze de cuisine préparée sur place. Deux semaines avant, la commune publie une nouvelle règle : toute vente de nourriture cuisinée sur place exige désormais une autorisation spéciale, délivrée en trois semaines au minimum.\n\nLes douze exposants concernés ont déjà acheté une partie de leurs ingrédients. Ces stands représentent aussi la moitié des recettes prévues par l'association. L'équipe doit annoncer aux exposants ce qui va se passer d'ici vendredi.",
+  "choices": [
+    {
+      "id": "A",
+      "label": "Demander une dérogation à la commune",
+      "hint": "Tenter de garder le plan",
+      "failure_event": "La commune répond qu'aucune dérogation n'est possible : la règle vise justement les événements de ce type."
+    },
+    {
+      "id": "B",
+      "label": "Remplacer les stands de cuisine par d'autres créateurs",
+      "hint": "Garder un marché complet",
+      "failure_event": "Les exposants de cuisine, déjà engagés, protestent vivement : ils ont acheté des ingrédients et menacent de ne plus jamais participer."
+    },
+    {
+      "id": "C",
+      "label": "Reporter le marché d'un mois",
+      "hint": "Le temps d'obtenir l'autorisation",
+      "failure_event": "À la nouvelle date, la salle n'est libre que le dimanche, et un tiers des exposants ne peut pas venir ce jour-là."
+    }
+  ],
+  "pivots": [
+    {
+      "id": "1",
+      "label": "Maintenir le cap",
+      "category": "maintenir"
+    },
+    {
+      "id": "2",
+      "label": "Ajuster partiellement",
+      "category": "ajuster"
+    },
+    {
+      "id": "3",
+      "label": "Changer radicalement",
+      "category": "changer"
+    }
+  ],
+  "pivots_by_choice": {
+    "A": [
+      {
+        "id": "1",
+        "label": "Relancer la commune avec un dossier plus complet",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Passer aux plats préparés à l'avance, qui restent autorisés",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Transformer le marché en événement sans aucune vente de nourriture",
+        "category": "changer"
+      }
+    ],
+    "B": [
+      {
+        "id": "1",
+        "label": "Maintenir le remplacement en expliquant mieux la contrainte",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Garder les exposants de cuisine pour des produits préparés à l'avance",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Rembourser leurs ingrédients et leur réserver une place l'an prochain",
+        "category": "changer"
+      }
+    ],
+    "C": [
+      {
+        "id": "1",
+        "label": "Garder le dimanche malgré les absences",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Tenir le marché à la date prévue sans cuisine, et une édition cuisine le mois suivant",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Chercher un autre lieu pour garder le samedi",
+        "category": "changer"
+      }
+    ]
+  },
+  "bilans": {
+    "A_1": {
+      "turning_point": "Le tournant est la réponse de la commune : la nouvelle règle n'était pas négociable.",
+      "pivot_evaluation": "Relancer avec un dossier plus complet insiste sur une voie déjà fermée et consomme le temps restant.",
+      "failure_type": "basique",
+      "outcome": "La commune confirme son refus à quatre jours du marché ; les exposants sont prévenus très tard.",
+      "key_takeaway": "Avant d'insister, vérifier si la porte est vraiment ouverte."
+    },
+    "A_2": {
+      "turning_point": "Le tournant est la réponse de la commune : la nouvelle règle n'était pas négociable.",
+      "pivot_evaluation": "Passer aux plats préparés à l'avance respecte la règle tout en gardant les exposants et une bonne part des recettes.",
+      "failure_type": "intelligent",
+      "outcome": "Dix exposants sur douze s'adaptent ; le marché est complet et les recettes atteignent 80 % de l'objectif.",
+      "key_takeaway": "Une règle nouvelle laisse souvent une marge : la chercher vaut mieux que tout abandonner."
+    },
+    "A_3": {
+      "turning_point": "Le tournant est la réponse de la commune : la nouvelle règle n'était pas négociable.",
+      "pivot_evaluation": "Supprimer toute vente de nourriture est sûr, mais l'association perd la moitié de ses recettes et des exposants fidèles.",
+      "failure_type": "complexe",
+      "outcome": "Le marché a lieu sans incident ; le bilan financier est déficitaire.",
+      "key_takeaway": "La solution la plus sûre n'est pas toujours la plus juste pour toutes les personnes concernées."
+    },
+    "B_1": {
+      "turning_point": "Le tournant est la réaction des exposants de cuisine : le remplacement ignorait ce qu'ils avaient déjà engagé.",
+      "pivot_evaluation": "Mieux expliquer la contrainte apaise un peu, mais ne compense pas les dépenses déjà faites.",
+      "failure_type": "complexe",
+      "outcome": "Le marché a lieu avec de nouveaux créateurs ; plusieurs exposants de cuisine ne reviendront pas.",
+      "key_takeaway": "Expliquer une décision ne suffit pas quand elle coûte de l'argent aux autres."
+    },
+    "B_2": {
+      "turning_point": "Le tournant est la réaction des exposants de cuisine : le remplacement ignorait ce qu'ils avaient déjà engagé.",
+      "pivot_evaluation": "Garder ces exposants pour des produits préparés à l'avance est un bon compromis, mais arrive après la crise de confiance.",
+      "failure_type": "complexe",
+      "outcome": "La moitié des exposants de cuisine acceptent ; les autres, encore fâchés, se retirent.",
+      "key_takeaway": "La même solution proposée plus tôt aurait évité la crise : l'ordre des décisions compte."
+    },
+    "B_3": {
+      "turning_point": "Le tournant est la réaction des exposants de cuisine : le remplacement ignorait ce qu'ils avaient déjà engagé.",
+      "pivot_evaluation": "Rembourser les ingrédients et réserver une place l'an prochain reconnaît ce que les exposants ont perdu.",
+      "failure_type": "intelligent",
+      "outcome": "Le marché est complet avec les remplaçants ; les exposants de cuisine remercient l'association et promettent de revenir.",
+      "key_takeaway": "Reconnaître ce qu'un changement coûte aux autres préserve la confiance."
+    },
+    "C_1": {
+      "turning_point": "Le tournant est le calendrier de la salle : le report a créé une contrainte nouvelle.",
+      "pivot_evaluation": "Garder le dimanche accepte de perdre des exposants, mais cette date attire un public familial plus large.",
+      "failure_type": "intelligent",
+      "outcome": "Les exposants absents sont en partie remplacés ; la fréquentation du dimanche dépasse les prévisions.",
+      "key_takeaway": "Une contrainte nouvelle peut ouvrir une possibilité qu'on n'avait pas envisagée."
+    },
+    "C_2": {
+      "turning_point": "Le tournant est le calendrier de la salle : le report a créé une contrainte nouvelle.",
+      "pivot_evaluation": "Faire deux éditions répond à la règle et aux exposants, mais double le travail d'une équipe bénévole.",
+      "failure_type": "complexe",
+      "outcome": "Les deux marchés ont lieu ; le second est moins fréquenté et l'équipe termine épuisée.",
+      "key_takeaway": "Multiplier les solutions multiplie aussi la charge de travail."
+    },
+    "C_3": {
+      "turning_point": "Le tournant est le calendrier de la salle : le report a créé une contrainte nouvelle.",
+      "pivot_evaluation": "Chercher un autre lieu en urgence pour garder le samedi relance toute l'organisation à zéro.",
+      "failure_type": "basique",
+      "outcome": "Aucun lieu adapté n'est trouvé ; le marché a finalement lieu le dimanche, après une semaine d'incertitude.",
+      "key_takeaway": "Avant de tout changer, vérifier que l'alternative existe vraiment."
+    }
+  }
+}

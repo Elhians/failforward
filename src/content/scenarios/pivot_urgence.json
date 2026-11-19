@@ -1,0 +1,161 @@
+{
+  "id": "pivot_urgence",
+  "theme": "Pivot d'urgence",
+  "stake": "Après un mois, l'hypothèse de départ du projet s'avère fausse.",
+  "situation": "Une équipe étudiante a lancé un service de location d'objets entre étudiants : calculatrices, livres, matériel de bricolage. L'hypothèse de départ était que les étudiants voulaient surtout économiser. Après un mois, seules douze locations ont eu lieu, pour un objectif de cent.\n\nEn revanche, la page « objets perdus », ajoutée à la dernière minute, reçoit chaque jour des dizaines de visites. L'incubateur de l'école, qui finance le projet, attend un bilan dans deux semaines pour décider de la suite. L'équipe doit choisir quoi faire de ces chiffres.",
+  "choices": [
+    {
+      "id": "A",
+      "label": "Relancer la location avec une campagne de communication",
+      "hint": "L'idée est bonne, elle manque de visibilité",
+      "failure_event": "La campagne attire du monde sur le site, mais presque personne ne loue : les visiteurs repartent aussitôt ou vont sur la page des objets perdus."
+    },
+    {
+      "id": "B",
+      "label": "Basculer tout le projet vers les objets perdus",
+      "hint": "Suivre ce que les chiffres montrent",
+      "failure_event": "En creusant, l'équipe découvre que la plupart des visites viennent de quelques personnes qui consultent la page plusieurs fois par jour : l'intérêt réel est plus étroit qu'il n'y paraissait."
+    },
+    {
+      "id": "C",
+      "label": "Interroger vingt utilisateurs avant de décider",
+      "hint": "Comprendre avant d'agir",
+      "failure_event": "Les entretiens prennent plus de temps que prévu : au bout d'une semaine, seules huit personnes ont répondu et leurs avis se contredisent."
+    }
+  ],
+  "pivots": [
+    {
+      "id": "1",
+      "label": "Maintenir le cap",
+      "category": "maintenir"
+    },
+    {
+      "id": "2",
+      "label": "Ajuster partiellement",
+      "category": "ajuster"
+    },
+    {
+      "id": "3",
+      "label": "Changer radicalement",
+      "category": "changer"
+    }
+  ],
+  "pivots_by_choice": {
+    "A": [
+      {
+        "id": "1",
+        "label": "Prolonger la campagne de deux semaines",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Garder la location mais la limiter aux objets les plus demandés",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Arrêter la campagne et étudier sérieusement les objets perdus",
+        "category": "changer"
+      }
+    ],
+    "B": [
+      {
+        "id": "1",
+        "label": "Poursuivre la bascule et lancer quand même le service d'objets perdus",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Tester les objets perdus dans un seul bâtiment pendant une semaine",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Revenir à la location, jugée plus solide",
+        "category": "changer"
+      }
+    ],
+    "C": [
+      {
+        "id": "1",
+        "label": "Continuer les entretiens jusqu'à vingt réponses, en relançant activement",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Compléter avec un questionnaire court diffusé largement",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Décider avec les huit réponses et les chiffres du site",
+        "category": "changer"
+      }
+    ]
+  },
+  "bilans": {
+    "A_1": {
+      "turning_point": "Le tournant est le comportement des nouveaux visiteurs : plus de visibilité n'a pas créé plus de besoin.",
+      "pivot_evaluation": "Prolonger la campagne revient à tester une deuxième fois la même hypothèse, déjà démentie par les chiffres.",
+      "failure_type": "basique",
+      "outcome": "Deux semaines plus tard, les locations atteignent dix-neuf ; l'incubateur suspend le financement.",
+      "key_takeaway": "Quand un test échoue, le répéter à l'identique apporte peu d'information nouvelle."
+    },
+    "A_2": {
+      "turning_point": "Le tournant est le comportement des nouveaux visiteurs : plus de visibilité n'a pas créé plus de besoin.",
+      "pivot_evaluation": "Se concentrer sur les objets les plus demandés réduit les coûts, mais ne répond pas à la question du vrai besoin.",
+      "failure_type": "complexe",
+      "outcome": "Le service survit à petite échelle ; l'incubateur demande un projet plus ambitieux pour continuer.",
+      "key_takeaway": "Réduire un projet le rend moins cher, pas forcément plus utile."
+    },
+    "A_3": {
+      "turning_point": "Le tournant est le comportement des nouveaux visiteurs : plus de visibilité n'a pas créé plus de besoin.",
+      "pivot_evaluation": "Arrêter la campagne pour étudier le signal inattendu est un pivot fondé sur des données réelles.",
+      "failure_type": "intelligent",
+      "outcome": "L'équipe présente à l'incubateur une piste nouvelle, chiffrée ; le financement est prolongé de trois mois.",
+      "key_takeaway": "Un échec bien mesuré peut montrer une direction que personne n'avait prévue."
+    },
+    "B_1": {
+      "turning_point": "Le tournant est l'analyse des visites : un chiffre spectaculaire cachait un usage très concentré.",
+      "pivot_evaluation": "Poursuivre la bascule malgré l'information nouvelle reproduit l'erreur de départ : décider sur une hypothèse non vérifiée.",
+      "failure_type": "complexe",
+      "outcome": "Le service d'objets perdus ouvre ; après un démarrage rapide, l'usage retombe à quelques personnes.",
+      "key_takeaway": "Un nouveau chiffre mérite la même prudence que l'ancienne hypothèse."
+    },
+    "B_2": {
+      "turning_point": "Le tournant est l'analyse des visites : un chiffre spectaculaire cachait un usage très concentré.",
+      "pivot_evaluation": "Tester dans un seul bâtiment vérifie l'intérêt réel à faible coût, avant d'engager tout le projet.",
+      "failure_type": "intelligent",
+      "outcome": "Le test montre un besoin réel mais modeste ; l'équipe présente deux pistes chiffrées et l'incubateur prolonge le projet.",
+      "key_takeaway": "Un petit test rapide vaut mieux qu'un grand changement de cap décidé sur une impression."
+    },
+    "B_3": {
+      "turning_point": "Le tournant est l'analyse des visites : un chiffre spectaculaire cachait un usage très concentré.",
+      "pivot_evaluation": "Revenir à la location annule la bascule, mais repart sur une hypothèse déjà démentie.",
+      "failure_type": "basique",
+      "outcome": "La location reprend sans changement ; le bilan présenté à l'incubateur reste fragile.",
+      "key_takeaway": "Revenir en arrière n'est utile que si l'on a compris pourquoi la première option avait échoué."
+    },
+    "C_1": {
+      "turning_point": "Le tournant est la lenteur des entretiens : une bonne méthode se heurte au calendrier.",
+      "pivot_evaluation": "Tenir la méthode jusqu'au bout, en relançant activement, donne enfin une image claire et cohérente du besoin.",
+      "failure_type": "intelligent",
+      "outcome": "Les vingt entretiens révèlent un besoin précis : emprunter du matériel la veille des examens. Le projet repart sur cette base.",
+      "key_takeaway": "Une méthode rigoureuse paie souvent quand on accepte d'aller jusqu'au bout."
+    },
+    "C_2": {
+      "turning_point": "Le tournant est la lenteur des entretiens : une bonne méthode se heurte au calendrier.",
+      "pivot_evaluation": "Un questionnaire élargit vite l'échantillon, mais ses réponses courtes expliquent mal les contradictions des entretiens.",
+      "failure_type": "complexe",
+      "outcome": "Deux cents réponses arrivent, peu concluantes ; l'équipe présente un bilan honnête mais sans direction claire.",
+      "key_takeaway": "Plus de réponses n'aide pas si les questions ne permettent pas de comprendre."
+    },
+    "C_3": {
+      "turning_point": "Le tournant est la lenteur des entretiens : une bonne méthode se heurte au calendrier.",
+      "pivot_evaluation": "Décider avec huit réponses respecte le calendrier, mais la décision repose sur un échantillon trop mince.",
+      "failure_type": "complexe",
+      "outcome": "L'équipe choisit une piste vite ; l'incubateur la juge prometteuse mais demande des preuves supplémentaires.",
+      "key_takeaway": "Décider vite est utile si l'on sait sur quelles bases fragiles on décide."
+    }
+  }
+}

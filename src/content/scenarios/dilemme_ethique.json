@@ -1,0 +1,161 @@
+{
+  "id": "dilemme_ethique",
+  "theme": "Dilemme éthique et budgétaire",
+  "stake": "Le client presse l'équipe de mettre en ligne un outil qui n'a pas fini d'être testé.",
+  "situation": "Une jeune structure a développé pour un festival un outil d'inscription en ligne. Le client veut l'ouvrir vendredi, jour où il lance sa campagne d'annonces, et la dernière tranche du paiement dépend de cette mise en ligne.\n\nLes tests ne sont faits qu'à moitié : sur les premiers essais, une inscription sur cinquante apparaît en double, et la cause n'est pas encore identifiée. La trésorerie de la structure est juste et deux salaires dépendent de ce paiement. Le client répète que « tout le monde a des petits bugs au lancement ».",
+  "choices": [
+    {
+      "id": "A",
+      "label": "Mettre en ligne vendredi comme demandé",
+      "hint": "Tenir l'engagement et sécuriser le paiement",
+      "failure_event": "Dès le premier soir, les doublons se multiplient avec l'afflux : certaines personnes reçoivent deux confirmations et le festival croit avoir plus d'inscrits que de places."
+    },
+    {
+      "id": "B",
+      "label": "Refuser la mise en ligne avant la fin des tests",
+      "hint": "Protéger la qualité, au risque du paiement",
+      "failure_event": "Le client se fâche et suspend le paiement : sa campagne d'annonces est déjà achetée pour vendredi et renvoie vers une page vide."
+    },
+    {
+      "id": "C",
+      "label": "Mettre en ligne en informant le client du risque par écrit",
+      "hint": "Partager la décision et la responsabilité",
+      "failure_event": "Le client signe l'accord sans vraiment le lire. Quand les doublons apparaissent, il découvre le problème par les réclamations des festivaliers."
+    }
+  ],
+  "pivots": [
+    {
+      "id": "1",
+      "label": "Maintenir le cap",
+      "category": "maintenir"
+    },
+    {
+      "id": "2",
+      "label": "Ajuster partiellement",
+      "category": "ajuster"
+    },
+    {
+      "id": "3",
+      "label": "Changer radicalement",
+      "category": "changer"
+    }
+  ],
+  "pivots_by_choice": {
+    "A": [
+      {
+        "id": "1",
+        "label": "Laisser en ligne et corriger les doublons à la main chaque soir",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Laisser en ligne mais limiter les inscriptions à la moitié des places le temps de corriger",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Fermer les inscriptions, prévenir les inscrits et rouvrir après correction",
+        "category": "changer"
+      }
+    ],
+    "B": [
+      {
+        "id": "1",
+        "label": "Maintenir le refus et proposer une nouvelle date ferme",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Ouvrir vendredi une simple liste d'intérêt, sans inscription définitive",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Céder et mettre en ligne immédiatement",
+        "category": "changer"
+      }
+    ],
+    "C": [
+      {
+        "id": "1",
+        "label": "S'appuyer sur l'accord signé et continuer",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Appeler le client pour expliquer le risque de vive voix et convenir d'un plan",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Suspendre les inscriptions de sa propre initiative",
+        "category": "changer"
+      }
+    ]
+  },
+  "bilans": {
+    "A_1": {
+      "turning_point": "Le tournant est le premier soir d'affluence : un défaut rare en test devient fréquent quand le volume augmente.",
+      "pivot_evaluation": "Corriger à la main chaque soir maintient le service, mais l'équipe s'épuise et des erreurs passent entre les mailles.",
+      "failure_type": "complexe",
+      "outcome": "Le festival tient, au prix de nuits de correction ; une dizaine de personnes restent mal inscrites.",
+      "key_takeaway": "Un correctif manuel n'est qu'un pansement : il faut prévoir quand il s'arrête."
+    },
+    "A_2": {
+      "turning_point": "Le tournant est le premier soir d'affluence : un défaut rare en test devient fréquent quand le volume augmente.",
+      "pivot_evaluation": "Limiter le volume réduit les doublons, mais laisse croire au public que le festival est presque complet.",
+      "failure_type": "complexe",
+      "outcome": "Les doublons baissent, mais des festivaliers renoncent en voyant peu de places ; le client s'en plaint.",
+      "key_takeaway": "Réduire un risque technique peut créer un risque de communication : il faut regarder les deux."
+    },
+    "A_3": {
+      "turning_point": "Le tournant est le premier soir d'affluence : un défaut rare en test devient fréquent quand le volume augmente.",
+      "pivot_evaluation": "Fermer, prévenir et rouvrir après correction coûte quelques jours mais rétablit la confiance sur une base saine.",
+      "failure_type": "intelligent",
+      "outcome": "Les inscriptions rouvrent mardi sans doublon ; le client paie la dernière tranche après la réouverture.",
+      "key_takeaway": "Arrêter tôt et expliquer clairement coûte souvent moins cher que réparer en continu."
+    },
+    "B_1": {
+      "turning_point": "Le tournant est la campagne d'annonces déjà achetée : le refus a un coût réel pour le client, pas seulement pour l'équipe.",
+      "pivot_evaluation": "Proposer une nouvelle date ferme est cohérent, mais ignore le problème concret du client : sa page vide vendredi.",
+      "failure_type": "basique",
+      "outcome": "Le client accepte la nouvelle date à contrecœur ; le paiement arrive avec un mois de retard.",
+      "key_takeaway": "Avant de dire non, chercher ce dont l'autre a vraiment besoin à court terme."
+    },
+    "B_2": {
+      "turning_point": "Le tournant est la campagne d'annonces déjà achetée : le refus a un coût réel pour le client, pas seulement pour l'équipe.",
+      "pivot_evaluation": "Une liste d'intérêt répond au besoin du client vendredi sans exposer les festivaliers à un outil non fiable.",
+      "failure_type": "intelligent",
+      "outcome": "La campagne renvoie vers la liste d'intérêt ; l'outil complet ouvre la semaine suivante et le paiement est versé.",
+      "key_takeaway": "Entre tout et rien, il existe souvent une version sûre qui répond au besoin immédiat."
+    },
+    "B_3": {
+      "turning_point": "Le tournant est la campagne d'annonces déjà achetée : le refus a un coût réel pour le client, pas seulement pour l'équipe.",
+      "pivot_evaluation": "Céder sous la pression revient au choix initial du client, avec en plus une relation déjà abîmée.",
+      "failure_type": "complexe",
+      "outcome": "L'outil ouvre samedi avec ses doublons ; le paiement arrive, mais le client ne renouvellera pas le contrat.",
+      "key_takeaway": "Changer d'avis sous la pression, sans information nouvelle, affaiblit les deux positions."
+    },
+    "C_1": {
+      "turning_point": "Le tournant est la découverte par les réclamations : l'information écrite n'a pas suffi à créer une décision partagée.",
+      "pivot_evaluation": "S'appuyer sur l'accord signé protège l'équipe sur le papier, mais ne règle ni les doublons ni la relation.",
+      "failure_type": "basique",
+      "outcome": "Le client reconnaît avoir signé mais met fin à la collaboration ; le paiement est versé avec retard.",
+      "key_takeaway": "Un document signé ne remplace pas une conversation : être compris compte plus qu'être couvert."
+    },
+    "C_2": {
+      "turning_point": "Le tournant est la découverte par les réclamations : l'information écrite n'a pas suffi à créer une décision partagée.",
+      "pivot_evaluation": "Expliquer de vive voix et construire un plan ensemble transforme l'accord papier en décision réellement partagée.",
+      "failure_type": "intelligent",
+      "outcome": "Le client annonce lui-même une correction en cours ; les doublons sont réglés en trois jours et la relation est préservée.",
+      "key_takeaway": "Partager un risque, c'est s'assurer que l'autre l'a compris, pas seulement qu'il l'a signé."
+    },
+    "C_3": {
+      "turning_point": "Le tournant est la découverte par les réclamations : l'information écrite n'a pas suffi à créer une décision partagée.",
+      "pivot_evaluation": "Suspendre de sa propre initiative protège les festivaliers, mais le client découvre une décision prise sans lui.",
+      "failure_type": "complexe",
+      "outcome": "Les doublons s'arrêtent ; le client, vexé, exige des explications avant de reprendre la collaboration.",
+      "key_takeaway": "Même une bonne décision, mal partagée, peut abîmer la confiance."
+    }
+  }
+}

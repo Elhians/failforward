@@ -1,0 +1,161 @@
+{
+  "id": "concurrent_rapide",
+  "theme": "Concurrent plus rapide",
+  "stake": "Un projet presque identique sort une semaine avant le lancement prévu par l'équipe.",
+  "situation": "Depuis quatre mois, une équipe développe une application de fiches de révision partagées entre étudiants. Le lancement est prévu dans dix jours, avec une présentation devant l'incubateur de l'école. Ce matin, une équipe d'une autre école publie une application presque identique, gratuite elle aussi, déjà relayée par plusieurs associations étudiantes.\n\nSes fonctions sont proches et son design est plus soigné. L'équipe a cependant un atout : un partenariat avec trois enseignants qui valident le contenu des fiches. Le moral est en baisse.",
+  "choices": [
+    {
+      "id": "A",
+      "label": "Avancer le lancement à la semaine prochaine",
+      "hint": "Ne pas laisser toute la place à l'autre",
+      "failure_event": "Le lancement précipité laisse passer plusieurs défauts : les premiers utilisateurs comparent avec l'application concurrente, plus fluide, et le font savoir."
+    },
+    {
+      "id": "B",
+      "label": "Garder la date et refaire le design",
+      "hint": "Rattraper l'écart le plus visible",
+      "failure_event": "Refaire le design prend tout le temps disponible : le jour de la présentation, l'application est plus belle mais moins stable qu'avant."
+    },
+    {
+      "id": "C",
+      "label": "Contacter l'autre équipe pour proposer une collaboration",
+      "hint": "Transformer le concurrent en allié",
+      "failure_event": "L'autre équipe répond poliment qu'elle préfère avancer seule : elle vient d'obtenir un financement et tient à son indépendance."
+    }
+  ],
+  "pivots": [
+    {
+      "id": "1",
+      "label": "Maintenir le cap",
+      "category": "maintenir"
+    },
+    {
+      "id": "2",
+      "label": "Ajuster partiellement",
+      "category": "ajuster"
+    },
+    {
+      "id": "3",
+      "label": "Changer radicalement",
+      "category": "changer"
+    }
+  ],
+  "pivots_by_choice": {
+    "A": [
+      {
+        "id": "1",
+        "label": "Garder le lancement anticipé et corriger au fil de l'eau",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Mettre en avant les fiches validées par les enseignants, en corrigeant les défauts",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Retirer l'application et la relancer à la date initiale",
+        "category": "changer"
+      }
+    ],
+    "B": [
+      {
+        "id": "1",
+        "label": "Terminer le nouveau design et stabiliser en dernière minute",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Revenir à l'ancienne version stable, avec quelques retouches visuelles",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Présenter le projet comme un service de contenu validé plutôt qu'une application de fiches",
+        "category": "changer"
+      }
+    ],
+    "C": [
+      {
+        "id": "1",
+        "label": "Revenir vers l'autre équipe avec une proposition précise et limitée",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Proposer simplement de partager les fiches validées",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Renoncer à la collaboration et se concentrer sur la différence",
+        "category": "changer"
+      }
+    ]
+  },
+  "bilans": {
+    "A_1": {
+      "turning_point": "Le tournant est la comparaison immédiate : en lançant plus tôt, l'équipe s'est mesurée sur le terrain de l'autre.",
+      "pivot_evaluation": "Corriger au fil de l'eau garde la présence, mais chaque défaut renforce la comparaison défavorable.",
+      "failure_type": "complexe",
+      "outcome": "L'application gagne quelques centaines d'utilisateurs, puis stagne ; l'incubateur demande ce qui la distingue.",
+      "key_takeaway": "Aller vite n'aide que si l'on va vite là où l'on est meilleur."
+    },
+    "A_2": {
+      "turning_point": "Le tournant est la comparaison immédiate : en lançant plus tôt, l'équipe s'est mesurée sur le terrain de l'autre.",
+      "pivot_evaluation": "Mettre en avant les fiches validées déplace la comparaison vers l'atout réel de l'équipe.",
+      "failure_type": "intelligent",
+      "outcome": "Les associations relaient l'application pour la fiabilité de son contenu ; l'incubateur soutient le projet.",
+      "key_takeaway": "Face à un concurrent, miser sur sa vraie différence vaut mieux que copier ses forces."
+    },
+    "A_3": {
+      "turning_point": "Le tournant est la comparaison immédiate : en lançant plus tôt, l'équipe s'est mesurée sur le terrain de l'autre.",
+      "pivot_evaluation": "Retirer l'application juste après l'avoir lancée crée de la confusion chez les premiers utilisateurs.",
+      "failure_type": "basique",
+      "outcome": "Le second lancement passe presque inaperçu ; une partie des premiers utilisateurs ne revient pas.",
+      "key_takeaway": "Un retour en arrière public a un coût : mieux vaut le décider avant de lancer."
+    },
+    "B_1": {
+      "turning_point": "Le tournant est la présentation : l'équipe a amélioré ce qui se voit au détriment de ce qui fonctionne.",
+      "pivot_evaluation": "Stabiliser en dernière minute garde le nouveau design, mais la démonstration reste risquée.",
+      "failure_type": "complexe",
+      "outcome": "La présentation se déroule avec deux petits incidents ; l'incubateur demande une version stable avant de s'engager.",
+      "key_takeaway": "Changer beaucoup de choses juste avant une échéance augmente le risque d'incident."
+    },
+    "B_2": {
+      "turning_point": "Le tournant est la présentation : l'équipe a amélioré ce qui se voit au détriment de ce qui fonctionne.",
+      "pivot_evaluation": "Revenir à la version stable sécurise la présentation, sans répondre à la question de la différence.",
+      "failure_type": "complexe",
+      "outcome": "La démonstration est fluide ; l'incubateur reste prudent face au concurrent.",
+      "key_takeaway": "La stabilité rassure, mais ne suffit pas à se distinguer."
+    },
+    "B_3": {
+      "turning_point": "Le tournant est la présentation : l'équipe a amélioré ce qui se voit au détriment de ce qui fonctionne.",
+      "pivot_evaluation": "Changer de positionnement met en avant ce que le concurrent n'a pas : un contenu validé par des enseignants.",
+      "failure_type": "intelligent",
+      "outcome": "L'incubateur voit un projet distinct ; deux associations proposent un partenariat.",
+      "key_takeaway": "Parfois, la meilleure réponse à un concurrent est de changer la question à laquelle on répond."
+    },
+    "C_1": {
+      "turning_point": "Le tournant est le refus de l'autre équipe : une collaboration trop large ne correspondait pas à ses intérêts.",
+      "pivot_evaluation": "Revenir avec une proposition précise et équilibrée respecte l'indépendance de l'autre équipe tout en gardant le lien.",
+      "failure_type": "intelligent",
+      "outcome": "L'autre équipe accepte d'intégrer les fiches validées en échange d'une mention ; les deux projets y gagnent.",
+      "key_takeaway": "Un refus porte souvent sur la forme d'une proposition, pas sur l'idée de travailler ensemble."
+    },
+    "C_2": {
+      "turning_point": "Le tournant est le refus de l'autre équipe : une collaboration trop large ne correspondait pas à ses intérêts.",
+      "pivot_evaluation": "Proposer de partager les fiches est simple, mais l'équipe risque de donner son atout sans contrepartie.",
+      "failure_type": "complexe",
+      "outcome": "L'autre équipe accepte les fiches ; l'équipe peine ensuite à expliquer ce qui la distingue.",
+      "key_takeaway": "Avant de partager un atout, définir ce qu'on obtient en échange."
+    },
+    "C_3": {
+      "turning_point": "Le tournant est le refus de l'autre équipe : une collaboration trop large ne correspondait pas à ses intérêts.",
+      "pivot_evaluation": "Se concentrer sur sa différence est sain, mais l'équipe aborde la présentation encore marquée par le refus.",
+      "failure_type": "complexe",
+      "outcome": "La présentation met bien en avant le contenu validé ; l'incubateur demande plus de preuves d'usage.",
+      "key_takeaway": "Une différence se défend mieux avec des chiffres d'utilisation qu'avec des arguments."
+    }
+  }
+}

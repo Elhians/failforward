@@ -1,0 +1,161 @@
+{
+  "id": "crise_lancement",
+  "theme": "Crise de lancement",
+  "stake": "Le prestataire clé de l'équipe abandonne la mission 48 h avant la livraison.",
+  "situation": "L'équipe projet doit livrer lundi une application de réservation à une association étudiante. Samedi matin, le prestataire chargé du module de paiement annonce qu'il quitte la mission pour un autre client prioritaire. Le module n'est terminé qu'à moitié.\n\nL'association a déjà annoncé le lancement à ses 300 membres et compte sur la démonstration de lundi pour obtenir une subvention. Le budget restant est faible et l'équipe a travaillé tard toute la semaine. Les autres modules sont prêts et testés. Il faut décider maintenant de la suite.",
+  "choices": [
+    {
+      "id": "A",
+      "label": "Engager un autre prestataire en urgence",
+      "hint": "Plus cher, mais disponible ce week-end",
+      "failure_event": "Le nouveau prestataire découvre que le code laissé n'est pas documenté. Il lui faut une journée entière rien que pour le comprendre : le module ne sera pas prêt lundi."
+    },
+    {
+      "id": "B",
+      "label": "Négocier un report avec l'association",
+      "hint": "Gagner du temps sans dépenser",
+      "failure_event": "L'association refuse le report : son comité de financement se réunit mardi et elle doit montrer quelque chose de concret avant cette date."
+    },
+    {
+      "id": "C",
+      "label": "Livrer une version sans paiement en ligne",
+      "hint": "Réduire le périmètre pour tenir la date",
+      "failure_event": "À la relecture, le règlement de la subvention exige un paiement en ligne fonctionnel. Une version sans paiement ne remplit pas la condition principale."
+    }
+  ],
+  "pivots": [
+    {
+      "id": "1",
+      "label": "Maintenir le cap",
+      "category": "maintenir"
+    },
+    {
+      "id": "2",
+      "label": "Ajuster partiellement",
+      "category": "ajuster"
+    },
+    {
+      "id": "3",
+      "label": "Changer radicalement",
+      "category": "changer"
+    }
+  ],
+  "pivots_by_choice": {
+    "A": [
+      {
+        "id": "1",
+        "label": "Garder le nouveau prestataire et lui laisser le temps de reprendre le code",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Lui confier une version simplifiée du paiement, prête pour lundi",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Abandonner le module et passer par un lien de paiement externe",
+        "category": "changer"
+      }
+    ],
+    "B": [
+      {
+        "id": "1",
+        "label": "Tenir le report et préparer une note écrite pour le comité",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Montrer une maquette cliquable mardi, la vraie démo plus tard",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Livrer mardi uniquement le module le plus avancé",
+        "category": "changer"
+      }
+    ],
+    "C": [
+      {
+        "id": "1",
+        "label": "Livrer sans paiement et argumenter auprès du comité",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Ajouter un paiement simplifié par lien pour lundi",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Reporter le lancement et refaire le plan avec l'association",
+        "category": "changer"
+      }
+    ]
+  },
+  "bilans": {
+    "A_1": {
+      "turning_point": "Le tournant arrive quand le code non documenté révèle que la reprise prendra bien plus de temps que prévu.",
+      "pivot_evaluation": "Maintenir le cap protège la qualité du module, mais la date de lundi ne peut plus être tenue. Le choix reste cohérent avec l'objectif de long terme.",
+      "failure_type": "complexe",
+      "outcome": "Lundi, la démonstration se fait sans paiement. Le module complet est livré le jeudi suivant et l'association obtient un délai de son comité.",
+      "key_takeaway": "Une reprise de code se planifie : sans documentation, le temps de compréhension compte autant que le temps de développement."
+    },
+    "A_2": {
+      "turning_point": "Le tournant arrive quand le code non documenté révèle que la reprise prendra bien plus de temps que prévu.",
+      "pivot_evaluation": "Réduire la commande au nouveau prestataire aligne l'effort sur le temps disponible. C'est un ajustement réfléchi, fondé sur une information nouvelle.",
+      "failure_type": "intelligent",
+      "outcome": "Lundi, un paiement simple fonctionne pendant la démonstration. Les options avancées arrivent deux semaines plus tard.",
+      "key_takeaway": "Quand le temps manque, réduire le périmètre d'un renfort vaut souvent mieux qu'ajouter des personnes."
+    },
+    "A_3": {
+      "turning_point": "Le tournant arrive quand le code non documenté révèle que la reprise prendra bien plus de temps que prévu.",
+      "pivot_evaluation": "Changer de solution règle l'urgence mais laisse de côté le travail déjà payé. Le gain de temps crée une dépendance à un outil externe.",
+      "failure_type": "complexe",
+      "outcome": "La démonstration fonctionne grâce au lien de paiement externe. L'association s'interroge sur les frais de cet outil, à renégocier ensuite.",
+      "key_takeaway": "Une solution de contournement est utile si l'on garde en tête ce qu'elle coûtera après l'urgence."
+    },
+    "B_1": {
+      "turning_point": "Le tournant est la réunion du comité mardi : une contrainte que l'équipe ne connaissait pas au moment de demander le report.",
+      "pivot_evaluation": "Tenir le report sans contrepartie concrète laisse l'association sans rien à montrer. La note écrite aide, mais ne remplace pas une preuve.",
+      "failure_type": "basique",
+      "outcome": "Le comité reporte sa décision de financement d'un mois. Le projet continue, mais sous pression.",
+      "key_takeaway": "Avant de négocier un délai, demander quelles échéances l'autre partie doit elle-même tenir."
+    },
+    "B_2": {
+      "turning_point": "Le tournant est la réunion du comité mardi : une contrainte que l'équipe ne connaissait pas au moment de demander le report.",
+      "pivot_evaluation": "Montrer une maquette répond au vrai besoin de l'association : avoir quelque chose de concret mardi. L'ajustement tient compte de la nouvelle contrainte.",
+      "failure_type": "intelligent",
+      "outcome": "Le comité voit le parcours complet en maquette et valide la subvention, sous réserve d'une démonstration réelle dans trois semaines.",
+      "key_takeaway": "Négocier, c'est aussi montrer quelque chose tôt, même imparfait."
+    },
+    "B_3": {
+      "turning_point": "Le tournant est la réunion du comité mardi : une contrainte que l'équipe ne connaissait pas au moment de demander le report.",
+      "pivot_evaluation": "Livrer une partie réelle prouve la capacité de l'équipe, mais le comité ne voit pas le parcours de paiement, son critère principal.",
+      "failure_type": "complexe",
+      "outcome": "Le comité apprécie le sérieux mais demande une seconde présentation. Le financement est retardé.",
+      "key_takeaway": "Ce que l'on montre doit répondre au critère de celui qui décide, pas seulement à ce qui est prêt."
+    },
+    "C_1": {
+      "turning_point": "Le tournant est la lecture du règlement de la subvention, qui transforme une simplification raisonnable en obstacle.",
+      "pivot_evaluation": "Argumenter sans changer la livraison revient à demander une exception. Cela peut marcher, mais l'issue ne dépend plus de l'équipe.",
+      "failure_type": "basique",
+      "outcome": "Le comité refuse l'exception. L'association doit déposer un nouveau dossier le trimestre suivant.",
+      "key_takeaway": "Relire les conditions de réussite avant de réduire un périmètre évite de couper la partie qui compte."
+    },
+    "C_2": {
+      "turning_point": "Le tournant est la lecture du règlement de la subvention, qui transforme une simplification raisonnable en obstacle.",
+      "pivot_evaluation": "Ajouter un paiement simplifié remplit la condition du règlement avec un effort limité. L'ajustement s'appuie directement sur l'information découverte.",
+      "failure_type": "intelligent",
+      "outcome": "Lundi, la démonstration inclut un paiement par lien. Le comité valide la condition et la subvention est accordée.",
+      "key_takeaway": "Une petite version qui remplit le critère essentiel vaut mieux qu'une grande version qui le manque."
+    },
+    "C_3": {
+      "turning_point": "Le tournant est la lecture du règlement de la subvention, qui transforme une simplification raisonnable en obstacle.",
+      "pivot_evaluation": "Refaire le plan avec l'association rétablit la confiance et clarifie les priorités, au prix d'un lancement retardé.",
+      "failure_type": "complexe",
+      "outcome": "Le lancement est décalé de trois semaines. Le nouveau plan, construit ensemble, est mieux accepté par les membres.",
+      "key_takeaway": "Revenir à la table avec le client transforme une crise en projet partagé, à condition d'accepter le délai."
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "id": "fuite_information",
+  "theme": "Fuite d'information",
+  "stake": "Un document interne de l'équipe circule dans un grand groupe de discussion.",
+  "situation": "Une équipe prépare un concours d'innovation entre écoles. Dimanche soir, un membre s'aperçoit que le dossier interne de l'équipe, avec l'idée détaillée, le budget et des commentaires très francs sur les autres équipes, a été partagé par erreur dans le grand groupe de discussion de la promotion.\n\nLe message a déjà été vu par une soixantaine de personnes, dont des membres d'équipes concurrentes. Personne ne sait encore qui l'a envoyé. Le rendu final du concours a lieu dans dix jours. L'équipe doit réagir dès ce soir.",
+  "choices": [
+    {
+      "id": "A",
+      "label": "Supprimer le message et ne rien dire",
+      "hint": "Limiter la diffusion sans attirer l'attention",
+      "failure_event": "Des captures d'écran circulent déjà : le lendemain, les commentaires sur les autres équipes sont cités dans plusieurs conversations."
+    },
+    {
+      "id": "B",
+      "label": "Chercher d'abord qui a envoyé le document",
+      "hint": "Comprendre ce qui s'est passé",
+      "failure_event": "La recherche crée un climat de méfiance : chacun se sent soupçonné, et la personne concernée, gênée, n'ose plus se manifester."
+    },
+    {
+      "id": "C",
+      "label": "Publier un message d'excuse dans le groupe",
+      "hint": "Prendre les devants avec transparence",
+      "failure_event": "Le message attire l'attention de ceux qui n'avaient pas vu le document : le nombre de lectures double dans l'heure."
+    }
+  ],
+  "pivots": [
+    {
+      "id": "1",
+      "label": "Maintenir le cap",
+      "category": "maintenir"
+    },
+    {
+      "id": "2",
+      "label": "Ajuster partiellement",
+      "category": "ajuster"
+    },
+    {
+      "id": "3",
+      "label": "Changer radicalement",
+      "category": "changer"
+    }
+  ],
+  "pivots_by_choice": {
+    "A": [
+      {
+        "id": "1",
+        "label": "Continuer à ne rien dire en attendant que ça passe",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Contacter en privé les équipes citées pour s'excuser",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Prévenir l'organisation du concours et proposer une solution",
+        "category": "changer"
+      }
+    ],
+    "B": [
+      {
+        "id": "1",
+        "label": "Poursuivre la recherche jusqu'à trouver la personne",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Arrêter la recherche et adopter une règle de partage des documents",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Arrêter la recherche et se concentrer sur une nouvelle version de l'idée",
+        "category": "changer"
+      }
+    ],
+    "C": [
+      {
+        "id": "1",
+        "label": "Laisser le message d'excuse faire son effet, sans relancer le sujet",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Compléter par des excuses individuelles aux équipes citées",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Retravailler l'idée pour qu'elle ne soit plus copiable telle quelle",
+        "category": "changer"
+      }
+    ]
+  },
+  "bilans": {
+    "A_1": {
+      "turning_point": "Le tournant est la découverte des captures d'écran : supprimer un message n'efface pas ce qui a déjà été copié.",
+      "pivot_evaluation": "Ne rien dire laisse les autres équipes interpréter seules les commentaires, sans la version de l'équipe.",
+      "failure_type": "basique",
+      "outcome": "Les tensions montent entre équipes ; l'organisation du concours finit par être alertée par d'autres.",
+      "key_takeaway": "Ce qui a fuité ne disparaît pas : mieux vaut décider comment en parler qu'espérer le silence."
+    },
+    "A_2": {
+      "turning_point": "Le tournant est la découverte des captures d'écran : supprimer un message n'efface pas ce qui a déjà été copié.",
+      "pivot_evaluation": "Des excuses privées réparent une partie des relations, mais l'organisation du concours reste tenue à l'écart.",
+      "failure_type": "complexe",
+      "outcome": "Deux équipes acceptent les excuses ; l'organisation, informée tardivement, demande des explications.",
+      "key_takeaway": "Réparer les relations est utile ; informer ceux qui garantissent les règles l'est aussi."
+    },
+    "A_3": {
+      "turning_point": "Le tournant est la découverte des captures d'écran : supprimer un message n'efface pas ce qui a déjà été copié.",
+      "pivot_evaluation": "Prévenir l'organisation et proposer une solution transforme une fuite subie en situation gérée ouvertement.",
+      "failure_type": "intelligent",
+      "outcome": "L'organisation rappelle les règles à tous et autorise l'équipe à ajuster son dossier ; le concours se poursuit sereinement.",
+      "key_takeaway": "Prévenir soi-même ceux qui arbitrent donne plus de contrôle que d'attendre qu'ils l'apprennent."
+    },
+    "B_1": {
+      "turning_point": "Le tournant est le climat de méfiance : chercher un responsable a remplacé la gestion du problème.",
+      "pivot_evaluation": "Poursuivre la recherche finit par trouver la personne, mais l'équipe perd plusieurs jours et une part de sa cohésion.",
+      "failure_type": "basique",
+      "outcome": "La personne se manifeste au bout de quatre jours ; l'équipe rend un dossier moins abouti que prévu.",
+      "key_takeaway": "Trouver qui a commis l'erreur aide moins qu'empêcher qu'elle se reproduise."
+    },
+    "B_2": {
+      "turning_point": "Le tournant est le climat de méfiance : chercher un responsable a remplacé la gestion du problème.",
+      "pivot_evaluation": "Remplacer la recherche d'un responsable par une règle commune traite la cause sans désigner personne.",
+      "failure_type": "intelligent",
+      "outcome": "La personne concernée se manifeste d'elle-même le lendemain ; l'équipe repart soudée, avec des règles claires.",
+      "key_takeaway": "Une culture sans reproche fait remonter les erreurs plus vite qu'une enquête."
+    },
+    "B_3": {
+      "turning_point": "Le tournant est le climat de méfiance : chercher un responsable a remplacé la gestion du problème.",
+      "pivot_evaluation": "Se concentrer sur une nouvelle version de l'idée est constructif, mais le malaise dans l'équipe n'est pas traité.",
+      "failure_type": "complexe",
+      "outcome": "Le nouveau dossier est solide ; deux membres restent distants jusqu'à la fin du concours.",
+      "key_takeaway": "Avancer sur le travail ne répare pas toujours ce qui s'est abîmé dans l'équipe."
+    },
+    "C_1": {
+      "turning_point": "Le tournant est l'effet du message d'excuse : il a amplifié la diffusion qu'il voulait limiter.",
+      "pivot_evaluation": "Laisser l'excuse faire son effet sans relancer la discussion évite d'amplifier encore, tout en assumant publiquement.",
+      "failure_type": "intelligent",
+      "outcome": "Le sujet s'éteint en deux jours ; plusieurs équipes saluent la franchise du message.",
+      "key_takeaway": "Après avoir assumé une erreur, savoir arrêter de la commenter évite de la faire durer."
+    },
+    "C_2": {
+      "turning_point": "Le tournant est l'effet du message d'excuse : il a amplifié la diffusion qu'il voulait limiter.",
+      "pivot_evaluation": "Les excuses individuelles complètent bien le message public, mais prolongent l'attention portée à l'incident.",
+      "failure_type": "complexe",
+      "outcome": "Les relations sont réparées avec la plupart des équipes ; l'incident reste un sujet de conversation toute la semaine.",
+      "key_takeaway": "Chaque nouvelle action sur un incident lui redonne de la visibilité : à doser."
+    },
+    "C_3": {
+      "turning_point": "Le tournant est l'effet du message d'excuse : il a amplifié la diffusion qu'il voulait limiter.",
+      "pivot_evaluation": "Retravailler l'idée protège le projet, mais demande un gros effort à dix jours du rendu.",
+      "failure_type": "complexe",
+      "outcome": "Le dossier final est différent et original ; l'équipe arrive au rendu fatiguée mais confiante.",
+      "key_takeaway": "Changer de projet pour se protéger est possible, à condition d'en mesurer le coût."
+    }
+  }
+}

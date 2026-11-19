@@ -1,0 +1,161 @@
+{
+  "id": "conflit_equipe",
+  "theme": "Conflit d'équipe pluridisciplinaire",
+  "stake": "Deux membres de l'équipe ne se parlent plus et le livrable commun prend du retard.",
+  "situation": "Une équipe de cinq étudiants aux spécialités différentes doit rendre vendredi un rapport et un prototype pour une commune fictive. Depuis un désaccord sur la solution à retenir, deux membres ne se parlent plus. Chacun avance de son côté, les réunions tournent court et la partie commune du rapport a une semaine de retard.\n\nLes trois autres membres se sentent pris entre deux feux. L'encadrant attend un point d'avancement jeudi matin. Il reste quatre jours, et l'équipe doit décider comment reprendre le travail ensemble.",
+  "choices": [
+    {
+      "id": "A",
+      "label": "Organiser une réunion de crise avec toute l'équipe",
+      "hint": "Mettre le désaccord sur la table",
+      "failure_event": "La réunion dégénère : les deux membres reprennent leur désaccord point par point, et la séance se termine sans décision après deux heures."
+    },
+    {
+      "id": "B",
+      "label": "Répartir le travail pour que chacun avance seul",
+      "hint": "Éviter les frictions jusqu'au rendu",
+      "failure_event": "Mercredi, les parties assemblées ne collent pas : les deux solutions défendues sont incompatibles et le rapport se contredit d'un chapitre à l'autre."
+    },
+    {
+      "id": "C",
+      "label": "Demander à l'encadrant de trancher",
+      "hint": "Une décision extérieure et rapide",
+      "failure_event": "L'encadrant refuse de choisir à la place de l'équipe : il rappelle que gérer un désaccord fait partie du projet."
+    }
+  ],
+  "pivots": [
+    {
+      "id": "1",
+      "label": "Maintenir le cap",
+      "category": "maintenir"
+    },
+    {
+      "id": "2",
+      "label": "Ajuster partiellement",
+      "category": "ajuster"
+    },
+    {
+      "id": "3",
+      "label": "Changer radicalement",
+      "category": "changer"
+    }
+  ],
+  "pivots_by_choice": {
+    "A": [
+      {
+        "id": "1",
+        "label": "Reprogrammer une réunion, cette fois avec un ordre du jour et un temps de parole limité",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Comparer les deux solutions sur trois critères choisis ensemble",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Retenir une troisième solution, plus simple, proposée par un autre membre",
+        "category": "changer"
+      }
+    ],
+    "B": [
+      {
+        "id": "1",
+        "label": "Continuer séparément et rédiger une conclusion qui présente les deux options",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Fixer une interface commune : ce que chaque partie doit fournir à l'autre",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Remettre toute l'équipe sur une seule solution, en binômes mélangés",
+        "category": "changer"
+      }
+    ],
+    "C": [
+      {
+        "id": "1",
+        "label": "Insister auprès de l'encadrant avec un comparatif écrit",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Demander à l'encadrant d'animer une séance, sans trancher",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Organiser un vote dans l'équipe, avec une règle acceptée d'avance",
+        "category": "changer"
+      }
+    ]
+  },
+  "bilans": {
+    "A_1": {
+      "turning_point": "Le tournant est la réunion sans cadre : sans règles de discussion, le désaccord technique est devenu personnel.",
+      "pivot_evaluation": "Garder la réunion mais lui donner un cadre traite la vraie cause : la manière de discuter, pas la discussion elle-même.",
+      "failure_type": "intelligent",
+      "outcome": "La deuxième réunion dure 45 minutes. Une solution est choisie et les deux membres se répartissent les sections.",
+      "key_takeaway": "Un désaccord se règle mieux avec un cadre clair qu'en évitant la discussion."
+    },
+    "A_2": {
+      "turning_point": "Le tournant est la réunion sans cadre : sans règles de discussion, le désaccord technique est devenu personnel.",
+      "pivot_evaluation": "Comparer sur des critères communs dépersonnalise le débat, mais choisir les critères prend lui-même du temps.",
+      "failure_type": "complexe",
+      "outcome": "Les critères font consensus mercredi soir ; le rapport est rendu avec une partie commune encore légère.",
+      "key_takeaway": "Des critères partagés transforment un conflit de personnes en question de méthode."
+    },
+    "A_3": {
+      "turning_point": "Le tournant est la réunion sans cadre : sans règles de discussion, le désaccord technique est devenu personnel.",
+      "pivot_evaluation": "Adopter une troisième voie apaise les tensions, mais aucun des deux membres ne s'y investit vraiment.",
+      "failure_type": "complexe",
+      "outcome": "Le prototype fonctionne mais reste sommaire ; l'encadrant remarque que l'équipe a contourné le désaccord sans le résoudre.",
+      "key_takeaway": "Éviter un désaccord ne le résout pas : il ressort souvent plus tard sous une autre forme."
+    },
+    "B_1": {
+      "turning_point": "Le tournant est l'assemblage de mercredi : travailler séparément a caché une incompatibilité de fond.",
+      "pivot_evaluation": "Présenter les deux options rend le rapport honnête, mais il ne répond plus à la demande d'une recommandation unique.",
+      "failure_type": "basique",
+      "outcome": "Le rapport est rendu à l'heure ; la commune fictive regrette l'absence de recommandation claire.",
+      "key_takeaway": "Un point d'assemblage prévu tôt aurait révélé l'incompatibilité avant la dernière minute."
+    },
+    "B_2": {
+      "turning_point": "Le tournant est l'assemblage de mercredi : travailler séparément a caché une incompatibilité de fond.",
+      "pivot_evaluation": "Définir ce que chaque partie doit fournir à l'autre crée un langage commun sans exiger d'accord sur tout.",
+      "failure_type": "intelligent",
+      "outcome": "Les parties s'emboîtent jeudi ; l'encadrant voit un projet cohérent et une équipe qui se reparle.",
+      "key_takeaway": "Se mettre d'accord sur les interfaces suffit parfois là où l'accord sur tout est impossible."
+    },
+    "B_3": {
+      "turning_point": "Le tournant est l'assemblage de mercredi : travailler séparément a caché une incompatibilité de fond.",
+      "pivot_evaluation": "Mélanger les binômes recrée du lien, mais repartir sur une seule solution à deux jours du rendu est risqué.",
+      "failure_type": "complexe",
+      "outcome": "L'ambiance s'améliore nettement ; le prototype est rendu avec un jour de retard négocié.",
+      "key_takeaway": "Recréer du lien a un coût en temps : il faut le décider assez tôt pour pouvoir le payer."
+    },
+    "C_1": {
+      "turning_point": "Le tournant est le refus de l'encadrant : la décision revient à l'équipe, qui n'a pas de méthode pour la prendre.",
+      "pivot_evaluation": "Insister auprès de l'encadrant reporte encore la décision et consomme du temps précieux.",
+      "failure_type": "basique",
+      "outcome": "L'encadrant maintient sa position ; l'équipe perd une journée et rend un travail incomplet.",
+      "key_takeaway": "Quand une décision revient à l'équipe, mieux vaut s'outiller pour la prendre que chercher qui la prendra."
+    },
+    "C_2": {
+      "turning_point": "Le tournant est le refus de l'encadrant : la décision revient à l'équipe, qui n'a pas de méthode pour la prendre.",
+      "pivot_evaluation": "Une animation extérieure aide à se parler, mais l'équipe reste dépendante d'une personne pour avancer.",
+      "failure_type": "complexe",
+      "outcome": "La séance animée débloque la situation jeudi ; le rendu est correct, l'organisation reste fragile.",
+      "key_takeaway": "Un tiers peut aider à se parler ; la décision, elle, doit rester celle de l'équipe."
+    },
+    "C_3": {
+      "turning_point": "Le tournant est le refus de l'encadrant : la décision revient à l'équipe, qui n'a pas de méthode pour la prendre.",
+      "pivot_evaluation": "Un vote avec une règle acceptée d'avance donne une décision légitime, rapide et assumée par tous.",
+      "failure_type": "intelligent",
+      "outcome": "La solution est votée en vingt minutes ; les deux membres acceptent le résultat et le rendu est complet.",
+      "key_takeaway": "Se mettre d'accord sur la façon de décider, avant de décider, évite bien des blocages."
+    }
+  }
+}

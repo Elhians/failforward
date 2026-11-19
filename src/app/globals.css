@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+/* Mode sombre piloté par data-theme sur <html> (bouton manuel + préférence système). */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/atkinson-hyperlegible-next-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/atkinson-hyperlegible-next-latin-700-normal.woff2") format("woff2");
+}
+
+/* ---------- Tokens (rapport « Interfaces Fail Forward ESP », § design system) ---------- */
+:root {
+  color-scheme: light;
+  --app-bg: #fafaf9;
+  --app-surface: #ffffff;
+  --app-surface-2: #f5f5f4;
+  --app-line: #d6d3d1;
+  --app-ink: #1c1917;
+  --app-muted: #57534d;
+  --app-primary: #00786f;
+  --app-primary-soft: #f0fdfa;
+  --app-on-primary: #ffffff;
+  --app-primary-shadow: #005a54;
+  --app-setback: #bb4d00;
+  --app-setback-bg: #fffbeb;
+  --app-setback-line: #fcd34d;
+  --app-pivot: #0069a8;
+  --app-pivot-bg: #f0f9ff;
+  --app-intelligent: #7008e7;
+  --app-intelligent-bg: #f5f3ff;
+  --app-danger: #b91c1c;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --app-bg: oklch(18% 0.012 60);
+  --app-surface: oklch(23% 0.012 60);
+  --app-surface-2: oklch(27% 0.012 60);
+  --app-line: oklch(38% 0.012 60);
+  --app-ink: oklch(93% 0.01 80);
+  --app-muted: #a6a09b;
+  --app-primary: #46ecd5;
+  --app-primary-soft: oklch(28% 0.045 185);
+  --app-on-primary: #0c0a09;
+  --app-primary-shadow: #00a492;
+  --app-setback: #ffd230;
+  --app-setback-bg: oklch(26% 0.05 70);
+  --app-setback-line: oklch(45% 0.09 70);
+  --app-pivot: #74d4ff;
+  --app-pivot-bg: oklch(26% 0.045 240);
+  --app-intelligent: #c4b4ff;
+  --app-intelligent-bg: oklch(27% 0.06 290);
+  --app-danger: #fca5a5;
+}
+
+/* Repli sans JavaScript : suit la préférence système. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --app-bg: oklch(18% 0.012 60);
+    --app-surface: oklch(23% 0.012 60);
+    --app-surface-2: oklch(27% 0.012 60);
+    --app-line: oklch(38% 0.012 60);
+    --app-ink: oklch(93% 0.01 80);
+    --app-muted: #a6a09b;
+    --app-primary: #46ecd5;
+    --app-primary-soft: oklch(28% 0.045 185);
+    --app-on-primary: #0c0a09;
+    --app-primary-shadow: #00a492;
+    --app-setback: #ffd230;
+    --app-setback-bg: oklch(26% 0.05 70);
+    --app-setback-line: oklch(45% 0.09 70);
+    --app-pivot: #74d4ff;
+    --app-pivot-bg: oklch(26% 0.045 240);
+    --app-intelligent: #c4b4ff;
+    --app-intelligent-bg: oklch(27% 0.06 290);
+    --app-danger: #fca5a5;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--app-bg);
+  --color-surface: var(--app-surface);
+  --color-surface-2: var(--app-surface-2);
+  --color-line: var(--app-line);
+  --color-ink: var(--app-ink);
+  --color-muted: var(--app-muted);
+  --color-primary: var(--app-primary);
+  --color-primary-soft: var(--app-primary-soft);
+  --color-on-primary: var(--app-on-primary);
+  --color-primary-shadow: var(--app-primary-shadow);
+  --color-setback: var(--app-setback);
+  --color-setback-bg: var(--app-setback-bg);
+  --color-setback-line: var(--app-setback-line);
+  --color-pivot: var(--app-pivot);
+  --color-pivot-bg: var(--app-pivot-bg);
+  --color-intelligent: var(--app-intelligent);
+  --color-intelligent-bg: var(--app-intelligent-bg);
+  --color-danger: var(--app-danger);
+}
+
+@theme {
+  --font-sans: "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  --ease-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ---------- Base ---------- */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-bottom: 7rem; /* le CTA collant ne masque jamais le focus (WCAG 2.4.11) */
+}
+body {
+  background: var(--app-bg);
+  color: var(--app-ink);
+  font-family: var(--font-sans);
+  font-size: 1.125rem; /* 18 px, minimum absolu 16 px */
+  line-height: 1.55;
+  -webkit-tap-highlight-color: transparent;
+}
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+input,
+textarea {
+  font-size: max(1rem, 1em); /* ≥ 16 px : pas de zoom iOS au focus */
+}
+:focus-visible {
+  outline: 3px solid var(--app-primary);
+  outline-offset: 2px;
+}
+textarea:focus-visible,
+input:not([type="radio"]):not([type="checkbox"]):focus-visible {
+  outline: none;
+  border-color: var(--app-primary);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--app-primary) 35%, transparent);
+}
+.prose-fr p + p {
+  margin-top: 0.75em;
+}
+.safe-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* ---------- Mouvement (transform/opacity uniquement, désactivable) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: 180ms var(--ease-soft) both ff-out;
+  }
+  ::view-transition-new(root) {
+    animation: 200ms var(--ease-soft) both ff-in;
+  }
+  .ff-enter {
+    animation: ff-in 200ms var(--ease-soft) both;
+  }
+  .ff-nudge {
+    animation: ff-nudge 320ms var(--ease-soft) 1 both;
+    transform-origin: 20% 100%;
+  }
+  .ff-reveal > * {
+    animation: ff-in 250ms var(--ease-soft) both;
+  }
+  .ff-reveal > *:nth-child(2) { animation-delay: 80ms; }
+  .ff-reveal > *:nth-child(3) { animation-delay: 160ms; }
+  .ff-reveal > *:nth-child(4) { animation-delay: 240ms; }
+  .ff-reveal > *:nth-child(5) { animation-delay: 320ms; }
+  .ff-reveal > *:nth-child(n + 6) { animation-delay: 400ms; }
+  .ff-flip {
+    animation: ff-flip 450ms var(--ease-soft) both;
+  }
+  .ff-press {
+    transition: transform 150ms var(--ease-soft), box-shadow 150ms var(--ease-soft), background-color 150ms, border-color 150ms;
+  }
+  .ff-press:active:not([aria-disabled="true"]) {
+    transform: translateY(2px) scale(0.99);
+  }
+  .ff-sheet {
+    animation: ff-up 220ms var(--ease-soft) both;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ff-flip,
+  .ff-enter {
+    animation: ff-fade 160ms linear both;
+  }
+}
+@keyframes ff-out {
+  to { opacity: 0; transform: translateY(-12px); }
+}
+@keyframes ff-in {
+  from { opacity: 0; transform: translateY(16px); }
+}
+@keyframes ff-fade {
+  from { opacity: 0; }
+}
+@keyframes ff-nudge {
+  0% { opacity: 0; transform: translateY(8px); }
+  45% { opacity: 1; transform: rotate(-1.5deg); }
+  100% { transform: none; }
+}
+@keyframes ff-flip {
+  from { opacity: 0.2; transform: perspective(800px) rotateY(-90deg); }
+  to { opacity: 1; transform: perspective(800px) rotateY(0); }
+}
+@keyframes ff-up {
+  from { transform: translateY(100%); }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; color: #000; font-size: 12pt; }
+}

@@ -1,0 +1,161 @@
+{
+  "id": "demo_ratee",
+  "theme": "Première démonstration ratée",
+  "stake": "Le client juge très sévèrement la première démonstration du projet.",
+  "situation": "Une équipe en stage réalise un site de vente en ligne pour une petite coopérative d'artisans. Après six semaines de travail, elle présente une première version. La réaction est brutale : selon la responsable de la coopérative, le site est « trop compliqué », « pas du tout dans l'esprit des artisans », et les membres les plus âgés ne sauront pas l'utiliser.\n\nLe cahier des charges initial a pourtant été suivi à la lettre. Il reste six semaines de stage. L'équipe, découragée, doit décider comment répondre à ce retour.",
+  "choices": [
+    {
+      "id": "A",
+      "label": "Défendre le travail en s'appuyant sur le cahier des charges",
+      "hint": "Le contrat a été respecté",
+      "failure_event": "La responsable admet que le cahier des charges est respecté, mais répète qu'un site que personne n'utilise ne sert à rien : la discussion tourne en rond."
+    },
+    {
+      "id": "B",
+      "label": "Tout refaire à partir de zéro",
+      "hint": "Repartir sur des bases nouvelles",
+      "failure_event": "Sans indications plus précises, l'équipe produit une version différente mais tout aussi éloignée des attentes ; trois semaines sont passées."
+    },
+    {
+      "id": "C",
+      "label": "Proposer un atelier d'essai avec des artisans",
+      "hint": "Comprendre le problème en situation",
+      "failure_event": "Le jour de l'atelier, seuls deux artisans viennent ; leurs remarques sont utiles mais difficiles à généraliser."
+    }
+  ],
+  "pivots": [
+    {
+      "id": "1",
+      "label": "Maintenir le cap",
+      "category": "maintenir"
+    },
+    {
+      "id": "2",
+      "label": "Ajuster partiellement",
+      "category": "ajuster"
+    },
+    {
+      "id": "3",
+      "label": "Changer radicalement",
+      "category": "changer"
+    }
+  ],
+  "pivots_by_choice": {
+    "A": [
+      {
+        "id": "1",
+        "label": "Garder la version actuelle et proposer de former les artisans",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Garder la structure du site et simplifier les trois pages les plus utilisées",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Arrêter de défendre et demander à voir les artisans travailler",
+        "category": "changer"
+      }
+    ],
+    "B": [
+      {
+        "id": "1",
+        "label": "Continuer la nouvelle version en espérant mieux viser",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Montrer la nouvelle version tôt, sur papier, avant de la programmer",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Revenir à la première version et la simplifier",
+        "category": "changer"
+      }
+    ],
+    "C": [
+      {
+        "id": "1",
+        "label": "Organiser un second atelier, cette fois chez les artisans",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Corriger d'après les deux retours et tester à nouveau",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Remplacer les ateliers par une visite d'une journée à la coopérative",
+        "category": "changer"
+      }
+    ]
+  },
+  "bilans": {
+    "A_1": {
+      "turning_point": "Le tournant est la réponse de la responsable : le contrat était respecté, mais le besoin réel était ailleurs.",
+      "pivot_evaluation": "Former les artisans garde le travail réalisé, mais demande aux utilisateurs de s'adapter à l'outil plutôt que l'inverse.",
+      "failure_type": "complexe",
+      "outcome": "Quelques artisans apprennent à utiliser le site ; la plupart continuent à vendre comme avant.",
+      "key_takeaway": "Un outil conforme au contrat mais pas à l'usage reste un outil peu utilisé."
+    },
+    "A_2": {
+      "turning_point": "Le tournant est la réponse de la responsable : le contrat était respecté, mais le besoin réel était ailleurs.",
+      "pivot_evaluation": "Simplifier les pages les plus utilisées améliore le site, mais sans avoir vu les artisans, l'équipe devine encore leurs besoins.",
+      "failure_type": "complexe",
+      "outcome": "La responsable trouve le site meilleur ; les artisans les plus âgés restent en difficulté.",
+      "key_takeaway": "Améliorer sans observer, c'est encore travailler sur des suppositions."
+    },
+    "A_3": {
+      "turning_point": "Le tournant est la réponse de la responsable : le contrat était respecté, mais le besoin réel était ailleurs.",
+      "pivot_evaluation": "Arrêter de défendre et observer les artisans au travail place enfin l'usage réel au centre du projet.",
+      "failure_type": "intelligent",
+      "outcome": "Une demi-journée d'observation révèle trois besoins simples ; la version finale est adoptée par la coopérative.",
+      "key_takeaway": "Quand un retour négatif surprend, aller voir l'usage réel vaut mieux que défendre le document."
+    },
+    "B_1": {
+      "turning_point": "Le tournant est la deuxième version ratée : tout refaire sans comprendre a reproduit le même écart.",
+      "pivot_evaluation": "Poursuivre la nouvelle version sans information nouvelle répète le même pari, avec moins de temps.",
+      "failure_type": "basique",
+      "outcome": "La troisième présentation déçoit encore ; le stage se termine sans site utilisable.",
+      "key_takeaway": "Refaire sans comprendre ce qui n'allait pas mène souvent au même résultat."
+    },
+    "B_2": {
+      "turning_point": "Le tournant est la deuxième version ratée : tout refaire sans comprendre a reproduit le même écart.",
+      "pivot_evaluation": "Montrer des esquisses sur papier avant de programmer permet d'ajuster vite avec la coopérative, à très faible coût.",
+      "failure_type": "intelligent",
+      "outcome": "Deux séances sur papier suffisent à trouver la bonne forme ; le site final est simple et bien accueilli.",
+      "key_takeaway": "Tester une idée sur papier coûte quelques heures et peut éviter des semaines de travail perdu."
+    },
+    "B_3": {
+      "turning_point": "Le tournant est la deuxième version ratée : tout refaire sans comprendre a reproduit le même écart.",
+      "pivot_evaluation": "Revenir à la première version et la simplifier récupère du travail, mais la direction reste floue.",
+      "failure_type": "complexe",
+      "outcome": "Le site final est plus simple et utilisable ; la responsable le juge correct, sans enthousiasme.",
+      "key_takeaway": "Récupérer un ancien travail est utile s'il est guidé par un retour précis."
+    },
+    "C_1": {
+      "turning_point": "Le tournant est la faible participation à l'atelier : une bonne idée, dans un format peu adapté aux artisans.",
+      "pivot_evaluation": "Aller chez les artisans plutôt que les faire venir adapte la méthode à leurs contraintes.",
+      "failure_type": "intelligent",
+      "outcome": "Huit artisans testent le site dans leurs ateliers ; les corrections sont claires et la version finale est adoptée.",
+      "key_takeaway": "Quand les gens ne viennent pas, aller vers eux est souvent la bonne réponse."
+    },
+    "C_2": {
+      "turning_point": "Le tournant est la faible participation à l'atelier : une bonne idée, dans un format peu adapté aux artisans.",
+      "pivot_evaluation": "Corriger d'après deux retours avance vite, mais risque de satisfaire deux personnes au détriment des autres.",
+      "failure_type": "complexe",
+      "outcome": "Le site s'améliore nettement pour certains usages ; d'autres artisans signalent des difficultés différentes.",
+      "key_takeaway": "Deux avis sont un point de départ, pas une conclusion."
+    },
+    "C_3": {
+      "turning_point": "Le tournant est la faible participation à l'atelier : une bonne idée, dans un format peu adapté aux artisans.",
+      "pivot_evaluation": "Une journée sur place apporte beaucoup d'informations, mais demande à la coopérative une organisation qu'elle n'avait pas prévue.",
+      "failure_type": "complexe",
+      "outcome": "La visite est riche mais courte ; l'équipe repart avec beaucoup de notes et peu de temps pour tout intégrer.",
+      "key_takeaway": "Plus d'informations n'aide que si l'on garde le temps de les utiliser."
+    }
+  }
+}

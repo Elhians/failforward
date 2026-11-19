@@ -1,0 +1,161 @@
+{
+  "id": "panne_production",
+  "theme": "Panne en production",
+  "stake": "L'application tombe en panne au milieu d'une démonstration devant des partenaires.",
+  "situation": "Une équipe présente à trois partenaires potentiels une application de réservation de salles pour les associations de la ville. Le passage dure quinze minutes. À la cinquième minute, en pleine démonstration, l'application cesse de répondre : l'écran reste figé sur une page de chargement.\n\nLes partenaires attendent, certains prennent des notes. Deux membres de l'équipe connaissent bien le code, un troisième a préparé la présentation orale. Il reste dix minutes et un seul ordinateur relié au vidéoprojecteur. Tout le monde regarde l'équipe.",
+  "choices": [
+    {
+      "id": "A",
+      "label": "Essayer de réparer en direct",
+      "hint": "Montrer la réactivité de l'équipe",
+      "failure_event": "Le redémarrage prend plus longtemps que prévu et affiche un message d'erreur technique à l'écran, incompréhensible pour les partenaires."
+    },
+    {
+      "id": "B",
+      "label": "Passer aux diapositives et décrire l'application",
+      "hint": "Garder le fil de la présentation",
+      "failure_event": "Sans l'application sous les yeux, les partenaires décrochent : l'un d'eux demande s'il existe vraiment une version qui fonctionne."
+    },
+    {
+      "id": "C",
+      "label": "Expliquer franchement la panne et proposer une autre date",
+      "hint": "Jouer la transparence",
+      "failure_event": "Les partenaires apprécient la franchise, mais l'un d'eux annonce qu'il ne pourra pas revenir : il fait son choix cette semaine."
+    }
+  ],
+  "pivots": [
+    {
+      "id": "1",
+      "label": "Maintenir le cap",
+      "category": "maintenir"
+    },
+    {
+      "id": "2",
+      "label": "Ajuster partiellement",
+      "category": "ajuster"
+    },
+    {
+      "id": "3",
+      "label": "Changer radicalement",
+      "category": "changer"
+    }
+  ],
+  "pivots_by_choice": {
+    "A": [
+      {
+        "id": "1",
+        "label": "Continuer la réparation pendant que la personne à l'oral occupe la salle",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Arrêter la réparation et montrer la vidéo de démonstration enregistrée la veille",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Arrêter la démonstration et lancer une discussion sur les besoins des partenaires",
+        "category": "changer"
+      }
+    ],
+    "B": [
+      {
+        "id": "1",
+        "label": "Rester sur les diapositives et répondre aux questions",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Faire circuler un téléphone avec la version mobile, qui fonctionne encore",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Proposer aux partenaires de tester eux-mêmes l'application dans la journée",
+        "category": "changer"
+      }
+    ],
+    "C": [
+      {
+        "id": "1",
+        "label": "Maintenir la nouvelle date pour les deux autres partenaires",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Proposer au troisième partenaire un appel vidéo de démonstration dès le lendemain",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Reprendre la présentation sans démonstration pour ceux qui restent",
+        "category": "changer"
+      }
+    ]
+  },
+  "bilans": {
+    "A_1": {
+      "turning_point": "Le tournant est le message d'erreur à l'écran : la tentative de réparation a rendu la panne visible et inquiétante.",
+      "pivot_evaluation": "Répartir les rôles, réparation d'un côté et parole de l'autre, garde la salle attentive pendant que le problème se règle.",
+      "failure_type": "intelligent",
+      "outcome": "L'application revient avec trois minutes restantes ; la démonstration courte convainc deux partenaires sur trois.",
+      "key_takeaway": "En situation de crise, une répartition claire des rôles vaut mieux que tout le monde sur le même problème."
+    },
+    "A_2": {
+      "turning_point": "Le tournant est le message d'erreur à l'écran : la tentative de réparation a rendu la panne visible et inquiétante.",
+      "pivot_evaluation": "La vidéo montre l'application, mais les partenaires savent qu'elle a été préparée et restent sur leur réserve.",
+      "failure_type": "complexe",
+      "outcome": "La présentation se termine proprement ; les partenaires demandent une démonstration en direct avant de s'engager.",
+      "key_takeaway": "Un plan de secours préparé à l'avance rassure, même s'il ne remplace pas la preuve en direct."
+    },
+    "A_3": {
+      "turning_point": "Le tournant est le message d'erreur à l'écran : la tentative de réparation a rendu la panne visible et inquiétante.",
+      "pivot_evaluation": "Ouvrir une discussion sur les besoins transforme le temps perdu en écoute, mais la question de la fiabilité reste ouverte.",
+      "failure_type": "complexe",
+      "outcome": "La discussion révèle des besoins utiles ; un partenaire s'engage, les deux autres attendent une démonstration.",
+      "key_takeaway": "Écouter peut rattraper une démonstration ratée, à condition de revenir avec une preuve."
+    },
+    "B_1": {
+      "turning_point": "Le tournant est la question du partenaire : sans application visible, le doute porte sur l'existence même du produit.",
+      "pivot_evaluation": "Rester sur les diapositives laisse la question du partenaire sans réponse concrète.",
+      "failure_type": "basique",
+      "outcome": "La présentation se termine poliment ; aucun partenaire ne donne suite.",
+      "key_takeaway": "Face à un doute sur la preuve, seules des preuves rassurent, pas des explications."
+    },
+    "B_2": {
+      "turning_point": "Le tournant est la question du partenaire : sans application visible, le doute porte sur l'existence même du produit.",
+      "pivot_evaluation": "Montrer la version mobile apporte une preuve, mais sur un petit écran qui circule mal dans la salle.",
+      "failure_type": "complexe",
+      "outcome": "Deux partenaires voient l'application fonctionner ; le troisième, plus loin, reste sceptique.",
+      "key_takeaway": "Une preuve partielle vaut mieux qu'aucune, si tout le monde peut la voir."
+    },
+    "B_3": {
+      "turning_point": "Le tournant est la question du partenaire : sans application visible, le doute porte sur l'existence même du produit.",
+      "pivot_evaluation": "Laisser les partenaires tester eux-mêmes répond directement au doute, avec une preuve qu'ils contrôlent.",
+      "failure_type": "intelligent",
+      "outcome": "Les trois partenaires testent l'application l'après-midi ; deux s'engagent et le troisième demande un devis.",
+      "key_takeaway": "La meilleure réponse à un doute est souvent de laisser l'autre vérifier par lui-même."
+    },
+    "C_1": {
+      "turning_point": "Le tournant est le calendrier d'un partenaire : la transparence a un coût quand l'autre ne peut pas attendre.",
+      "pivot_evaluation": "Maintenir une autre date garde la relation avec deux partenaires, mais accepte de perdre le troisième.",
+      "failure_type": "complexe",
+      "outcome": "La seconde démonstration se passe bien ; deux partenaires s'engagent, le troisième a choisi un autre prestataire.",
+      "key_takeaway": "Une solution qui convient à la majorité peut laisser de côté la personne la plus pressée."
+    },
+    "C_2": {
+      "turning_point": "Le tournant est le calendrier d'un partenaire : la transparence a un coût quand l'autre ne peut pas attendre.",
+      "pivot_evaluation": "Adapter la suite à la contrainte du troisième partenaire garde la transparence et la relation avec tous.",
+      "failure_type": "intelligent",
+      "outcome": "L'appel du lendemain se passe sans incident ; les trois partenaires restent intéressés.",
+      "key_takeaway": "Être transparent, c'est aussi proposer une suite qui tient compte des contraintes de chacun."
+    },
+    "C_3": {
+      "turning_point": "Le tournant est le calendrier d'un partenaire : la transparence a un coût quand l'autre ne peut pas attendre.",
+      "pivot_evaluation": "Reprendre sans démonstration juste après avoir annoncé une autre date brouille le message.",
+      "failure_type": "basique",
+      "outcome": "Les partenaires ne savent plus s'ils doivent revenir ; la suite se perd dans les échanges de messages.",
+      "key_takeaway": "Après avoir annoncé une décision, en changer aussitôt affaiblit la confiance."
+    }
+  }
+}

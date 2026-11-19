@@ -1,0 +1,161 @@
+{
+  "id": "surcharge",
+  "theme": "Surcharge",
+  "stake": "Trop de tâches en parallèle, et un membre clé de l'équipe s'épuise.",
+  "situation": "Une équipe de quatre personnes mène trois projets en parallèle : un rapport de groupe, l'organisation d'un tournoi pour le bureau des étudiants et une candidature à un concours. Depuis trois semaines, une même personne fait le lien entre tout : elle répond aux messages tard le soir, relit chaque document et règle les imprévus.\n\nCe matin, elle annonce qu'elle est épuisée et qu'elle a besoin de quelques jours de repos. Les trois échéances tombent dans les dix prochains jours, et les trois autres membres connaissent mal les dossiers qu'elle suivait.",
+  "choices": [
+    {
+      "id": "A",
+      "label": "Lui demander de tenir jusqu'aux échéances",
+      "hint": "Dix jours, c'est court",
+      "failure_event": "Deux jours plus tard, elle doit s'arrêter complètement : personne ne sait où en sont ses dossiers."
+    },
+    {
+      "id": "B",
+      "label": "Se répartir ses tâches entre les trois autres",
+      "hint": "Partager la charge tout de suite",
+      "failure_event": "Sans passation, chacun refait des choses déjà faites ou passe à côté d'informations importantes ; deux erreurs partent vers le bureau des étudiants."
+    },
+    {
+      "id": "C",
+      "label": "Abandonner l'un des trois projets",
+      "hint": "Réduire la charge à la source",
+      "failure_event": "Le projet abandonné, la candidature au concours, était justement celui auquel la personne épuisée tenait le plus : elle le vit comme un désaveu."
+    }
+  ],
+  "pivots": [
+    {
+      "id": "1",
+      "label": "Maintenir le cap",
+      "category": "maintenir"
+    },
+    {
+      "id": "2",
+      "label": "Ajuster partiellement",
+      "category": "ajuster"
+    },
+    {
+      "id": "3",
+      "label": "Changer radicalement",
+      "category": "changer"
+    }
+  ],
+  "pivots_by_choice": {
+    "A": [
+      {
+        "id": "1",
+        "label": "Tenir quand même les trois échéances avec l'équipe restante",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Demander des délais sur deux des trois projets",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Abandonner deux projets pour sauver le plus important",
+        "category": "changer"
+      }
+    ],
+    "B": [
+      {
+        "id": "1",
+        "label": "Continuer la répartition et corriger les erreurs au fur et à mesure",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Prendre une heure avec elle, au calme, pour une passation écrite",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Confier tous ses dossiers à une seule personne",
+        "category": "changer"
+      }
+    ],
+    "C": [
+      {
+        "id": "1",
+        "label": "Maintenir l'abandon et en parler avec elle à son retour",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Garder la candidature en version allégée, préparée par les autres",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Abandonner plutôt le tournoi, après en avoir parlé ensemble",
+        "category": "changer"
+      }
+    ]
+  },
+  "bilans": {
+    "A_1": {
+      "turning_point": "Le tournant est l'arrêt complet : la fatigue signalée n'était pas un détail à gérer, mais une limite atteinte.",
+      "pivot_evaluation": "Tenir les trois échéances à trois, sans ses informations, demande un effort qui risque d'épuiser d'autres membres.",
+      "failure_type": "complexe",
+      "outcome": "Deux projets sont rendus à temps, le troisième de justesse ; l'équipe termine elle aussi à bout de forces.",
+      "key_takeaway": "Une surcharge non traitée se déplace souvent vers d'autres personnes."
+    },
+    "A_2": {
+      "turning_point": "Le tournant est l'arrêt complet : la fatigue signalée n'était pas un détail à gérer, mais une limite atteinte.",
+      "pivot_evaluation": "Demander des délais réduit la pression à la source et laisse le temps de reprendre les dossiers proprement.",
+      "failure_type": "intelligent",
+      "outcome": "Deux délais sont accordés ; les projets sont rendus correctement et la personne revient sans culpabilité.",
+      "key_takeaway": "Un délai demandé tôt est souvent plus facile à obtenir qu'on ne le pense."
+    },
+    "A_3": {
+      "turning_point": "Le tournant est l'arrêt complet : la fatigue signalée n'était pas un détail à gérer, mais une limite atteinte.",
+      "pivot_evaluation": "Abandonner deux projets protège l'essentiel, mais l'équipe renonce à des engagements pris auprès d'autres.",
+      "failure_type": "complexe",
+      "outcome": "Le rapport est excellent ; le bureau des étudiants doit trouver d'autres organisateurs en urgence.",
+      "key_takeaway": "Réduire sa charge a des conséquences pour d'autres : il faut les prévenir tôt."
+    },
+    "B_1": {
+      "turning_point": "Le tournant est la série d'erreurs : partager les tâches sans partager l'information a créé de nouveaux problèmes.",
+      "pivot_evaluation": "Corriger au fur et à mesure maintient l'avancée, mais les erreurs continuent tant que l'information manque.",
+      "failure_type": "basique",
+      "outcome": "Les échéances sont tenues au prix de plusieurs corrections et excuses ; l'équipe est épuisée.",
+      "key_takeaway": "Une passation, même courte, évite des heures de corrections."
+    },
+    "B_2": {
+      "turning_point": "Le tournant est la série d'erreurs : partager les tâches sans partager l'information a créé de nouveaux problèmes.",
+      "pivot_evaluation": "Une heure de passation écrite, au calme, transmet l'essentiel sans demander plus d'effort à la personne fatiguée.",
+      "failure_type": "intelligent",
+      "outcome": "Les dossiers repartent sur de bonnes bases ; les trois échéances sont tenues et la personne se repose vraiment.",
+      "key_takeaway": "Bien transmettre une fois vaut mieux que se tromper plusieurs fois."
+    },
+    "B_3": {
+      "turning_point": "Le tournant est la série d'erreurs : partager les tâches sans partager l'information a créé de nouveaux problèmes.",
+      "pivot_evaluation": "Tout confier à une seule personne recrée exactement la situation qui a mené à l'épuisement.",
+      "failure_type": "basique",
+      "outcome": "La nouvelle personne référente tient les échéances, mais montre à son tour des signes de fatigue.",
+      "key_takeaway": "Concentrer toute la charge sur une seule personne fragilise toute l'équipe."
+    },
+    "C_1": {
+      "turning_point": "Le tournant est la réaction de la personne épuisée : la décision a été prise sans elle, sur ce qui comptait pour elle.",
+      "pivot_evaluation": "Maintenir l'abandon et en parler plus tard laisse le malaise grandir pendant son repos.",
+      "failure_type": "complexe",
+      "outcome": "Les deux projets restants sont rendus ; la personne revient distante et l'équipe met du temps à se retrouver.",
+      "key_takeaway": "Une décision qui touche quelqu'un se prend mieux avec cette personne qu'à sa place."
+    },
+    "C_2": {
+      "turning_point": "Le tournant est la réaction de la personne épuisée : la décision a été prise sans elle, sur ce qui comptait pour elle.",
+      "pivot_evaluation": "Garder la candidature en version allégée respecte ce qui comptait pour elle, mais ajoute une charge aux autres.",
+      "failure_type": "complexe",
+      "outcome": "La candidature est déposée, simple mais complète ; l'équipe tient les trois échéances de justesse.",
+      "key_takeaway": "Alléger un projet plutôt que l'abandonner peut préserver ce qui compte pour l'équipe."
+    },
+    "C_3": {
+      "turning_point": "Le tournant est la réaction de la personne épuisée : la décision a été prise sans elle, sur ce qui comptait pour elle.",
+      "pivot_evaluation": "Choisir ensemble le projet à abandonner réduit la charge tout en respectant les priorités de chacun.",
+      "failure_type": "intelligent",
+      "outcome": "Le tournoi est confié à d'autres bénévoles ; la candidature et le rapport sont rendus, et l'équipe reste soudée.",
+      "key_takeaway": "Réduire la charge, oui ; mais en décidant ensemble de ce qu'on garde."
+    }
+  }
+}

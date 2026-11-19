@@ -1,0 +1,161 @@
+{
+  "id": "ressources_coupees",
+  "theme": "Ressources coupées",
+  "stake": "À trois semaines de l'événement, le budget est coupé de moitié et l'équipe perd deux membres.",
+  "situation": "Une association étudiante organise un forum des métiers pour 400 visiteurs, dans trois semaines. Ce matin, l'école annonce que sa subvention est réduite de moitié, à cause de restrictions générales. Le même jour, deux des six organisateurs annoncent qu'ils partent en stage plus tôt que prévu.\n\nUne trentaine d'exposants et d'anciens élèves ont confirmé leur venue. Le traiteur, les impressions et la location du matériel n'ont pas encore été payés. L'équipe restante, motivée mais inquiète, doit revoir son plan avant la fin de la semaine.",
+  "choices": [
+    {
+      "id": "A",
+      "label": "Garder le programme complet et chercher des sponsors",
+      "hint": "Ne rien sacrifier",
+      "failure_event": "Après une semaine de démarches, un seul sponsor accepte, pour une petite somme : il manque toujours un tiers du budget."
+    },
+    {
+      "id": "B",
+      "label": "Réduire le forum à une demi-journée",
+      "hint": "Adapter l'ambition aux moyens",
+      "failure_event": "Plusieurs exposants, prévenus du changement, annulent : ils avaient prévu de rester la journée et le déplacement ne vaut plus la peine pour eux."
+    },
+    {
+      "id": "C",
+      "label": "Recruter de nouveaux bénévoles en urgence",
+      "hint": "Retrouver des bras avant tout",
+      "failure_event": "Huit volontaires répondent, mais aucun ne connaît le projet : former tout le monde demande plus de temps que l'équipe n'en a."
+    }
+  ],
+  "pivots": [
+    {
+      "id": "1",
+      "label": "Maintenir le cap",
+      "category": "maintenir"
+    },
+    {
+      "id": "2",
+      "label": "Ajuster partiellement",
+      "category": "ajuster"
+    },
+    {
+      "id": "3",
+      "label": "Changer radicalement",
+      "category": "changer"
+    }
+  ],
+  "pivots_by_choice": {
+    "A": [
+      {
+        "id": "1",
+        "label": "Continuer à démarcher jusqu'à la dernière semaine",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Supprimer le traiteur et garder le reste du programme",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Proposer aux exposants une petite participation aux frais",
+        "category": "changer"
+      }
+    ],
+    "B": [
+      {
+        "id": "1",
+        "label": "Garder la demi-journée et la remplir avec les exposants restants",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Proposer aux exposants qui annulent une intervention en ligne",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Revenir à la journée complète avec un format plus simple",
+        "category": "changer"
+      }
+    ],
+    "C": [
+      {
+        "id": "1",
+        "label": "Former les volontaires en une soirée, sur les tâches les plus simples",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Ne garder que trois volontaires et leur confier une mission chacun",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Renoncer aux volontaires et réduire les tâches à ce que l'équipe peut faire",
+        "category": "changer"
+      }
+    ]
+  },
+  "bilans": {
+    "A_1": {
+      "turning_point": "Le tournant est la réponse des sponsors : trouver de l'argent en une semaine est plus difficile que prévu.",
+      "pivot_evaluation": "Continuer à démarcher garde l'espoir d'un programme complet, mais repousse toutes les autres décisions.",
+      "failure_type": "basique",
+      "outcome": "Le dernier sponsor dit non à dix jours du forum ; l'équipe annule en urgence le traiteur et une partie des stands.",
+      "key_takeaway": "Fixer une date limite à une recherche évite de décider trop tard."
+    },
+    "A_2": {
+      "turning_point": "Le tournant est la réponse des sponsors : trouver de l'argent en une semaine est plus difficile que prévu.",
+      "pivot_evaluation": "Supprimer le traiteur équilibre le budget, mais les visiteurs passent la journée sans pouvoir manger sur place.",
+      "failure_type": "complexe",
+      "outcome": "Le forum a lieu en entier ; la fréquentation chute nettement à partir de midi.",
+      "key_takeaway": "Couper une dépense a des effets sur l'expérience qu'il faut anticiper."
+    },
+    "A_3": {
+      "turning_point": "Le tournant est la réponse des sponsors : trouver de l'argent en une semaine est plus difficile que prévu.",
+      "pivot_evaluation": "Demander une petite participation aux exposants partage l'effort avec ceux qui profitent directement du forum.",
+      "failure_type": "intelligent",
+      "outcome": "Vingt-cinq exposants acceptent ; le budget est bouclé et le programme reste complet.",
+      "key_takeaway": "Quand les moyens manquent, ceux qui bénéficient du projet peuvent souvent y contribuer."
+    },
+    "B_1": {
+      "turning_point": "Le tournant est le retrait d'exposants : le nouveau format ne correspond plus à ce qu'ils venaient chercher.",
+      "pivot_evaluation": "Garder la demi-journée avec les exposants restants donne un forum plus court mais plus dense, tenable par l'équipe.",
+      "failure_type": "intelligent",
+      "outcome": "Dix-huit exposants participent à un forum dense et bien organisé ; les visiteurs saluent la qualité des échanges.",
+      "key_takeaway": "Un format plus petit mais bien tenu vaut mieux qu'un grand format fragile."
+    },
+    "B_2": {
+      "turning_point": "Le tournant est le retrait d'exposants : le nouveau format ne correspond plus à ce qu'ils venaient chercher.",
+      "pivot_evaluation": "Les interventions en ligne gardent des exposants, mais demandent un matériel et une organisation que l'équipe n'a plus.",
+      "failure_type": "complexe",
+      "outcome": "Trois interventions en ligne ont lieu, dont une avec des coupures ; l'ensemble reste correct.",
+      "key_takeaway": "Ajouter une solution technique ajoute aussi une charge à une équipe déjà réduite."
+    },
+    "B_3": {
+      "turning_point": "Le tournant est le retrait d'exposants : le nouveau format ne correspond plus à ce qu'ils venaient chercher.",
+      "pivot_evaluation": "Revenir à la journée complète rassure les exposants, mais annule l'économie qui justifiait le changement.",
+      "failure_type": "basique",
+      "outcome": "Les exposants reviennent ; le budget est dépassé de 20 % et l'association doit avancer la différence.",
+      "key_takeaway": "Annuler une décision d'économie sans ressource nouvelle ramène le problème de départ."
+    },
+    "C_1": {
+      "turning_point": "Le tournant est l'arrivée des volontaires : une aide sans contexte demande d'abord du temps à l'équipe.",
+      "pivot_evaluation": "Une soirée de formation ciblée sur les tâches simples rend les volontaires utiles sans épuiser l'équipe.",
+      "failure_type": "intelligent",
+      "outcome": "Les volontaires gèrent l'accueil et l'orientation ; l'équipe se concentre sur les exposants et le forum se passe bien.",
+      "key_takeaway": "Confier des tâches simples et bien expliquées permet d'intégrer vite des renforts."
+    },
+    "C_2": {
+      "turning_point": "Le tournant est l'arrivée des volontaires : une aide sans contexte demande d'abord du temps à l'équipe.",
+      "pivot_evaluation": "Garder trois volontaires avec une mission chacun limite la formation, mais laisse des besoins non couverts.",
+      "failure_type": "complexe",
+      "outcome": "Le forum fonctionne, avec des files d'attente à l'accueil aux heures de pointe.",
+      "key_takeaway": "Moins de renforts, mieux formés, est un compromis : il faut savoir ce qu'on laisse de côté."
+    },
+    "C_3": {
+      "turning_point": "Le tournant est l'arrivée des volontaires : une aide sans contexte demande d'abord du temps à l'équipe.",
+      "pivot_evaluation": "Renoncer aux volontaires simplifie l'organisation, mais l'équipe réduite porte seule un forum pensé pour six.",
+      "failure_type": "complexe",
+      "outcome": "Le forum a lieu ; l'équipe termine épuisée et deux stands ne sont pas installés à temps.",
+      "key_takeaway": "Réduire les tâches ne protège l'équipe que si l'on réduit vraiment, pas seulement sur le papier."
+    }
+  }
+}

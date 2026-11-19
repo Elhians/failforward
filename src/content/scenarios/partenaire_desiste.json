@@ -1,0 +1,161 @@
+{
+  "id": "partenaire_desiste",
+  "theme": "Partenaire qui se désiste",
+  "stake": "La salle réservée annule deux jours avant l'événement.",
+  "situation": "Le club organise vendredi une journée de conférences pour 150 personnes. Mercredi soir, la salle réservée annule à cause d'une inondation dans le bâtiment. Les cinq intervenants ont confirmé leur venue, les inscriptions sont closes et l'affiche circule déjà.\n\nDeux ou trois solutions se dessinent, aucune n'est parfaite, et l'équipe d'organisation ne compte que quatre personnes disponibles cette semaine. Le budget ne permet pas de grosse dépense supplémentaire. Une décision doit être prise ce soir pour prévenir les intervenants et les inscrits à temps.",
+  "choices": [
+    {
+      "id": "A",
+      "label": "Réserver tout de suite une salle plus petite",
+      "hint": "80 places, disponible et proche",
+      "failure_event": "Jeudi, le nombre d'inscrits qui confirment leur venue dépasse largement 80. Il faut refuser du monde ou trouver une solution en plus."
+    },
+    {
+      "id": "B",
+      "label": "Passer l'événement en ligne",
+      "hint": "Plus aucune contrainte de salle",
+      "failure_event": "Deux intervenants n'auront pas de connexion fiable vendredi, et beaucoup de participants signalent qu'ils suivront depuis un téléphone avec peu de données."
+    },
+    {
+      "id": "C",
+      "label": "Reporter l'événement d'une semaine",
+      "hint": "Garder le format prévu",
+      "failure_event": "Trois intervenants sur cinq ne sont pas disponibles la semaine suivante."
+    }
+  ],
+  "pivots": [
+    {
+      "id": "1",
+      "label": "Maintenir le cap",
+      "category": "maintenir"
+    },
+    {
+      "id": "2",
+      "label": "Ajuster partiellement",
+      "category": "ajuster"
+    },
+    {
+      "id": "3",
+      "label": "Changer radicalement",
+      "category": "changer"
+    }
+  ],
+  "pivots_by_choice": {
+    "A": [
+      {
+        "id": "1",
+        "label": "Garder la salle de 80 places et ouvrir une liste d'attente",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Ajouter une retransmission dans la salle voisine",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Chercher en urgence une grande salle, même loin du campus",
+        "category": "changer"
+      }
+    ],
+    "B": [
+      {
+        "id": "1",
+        "label": "Rester en ligne en préenregistrant les deux interventions à risque",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Ajouter une salle de visionnage sur le campus en plus du direct",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Revenir à une salle physique, quelle qu'elle soit",
+        "category": "changer"
+      }
+    ],
+    "C": [
+      {
+        "id": "1",
+        "label": "Garder la nouvelle date et chercher d'autres intervenants",
+        "category": "maintenir"
+      },
+      {
+        "id": "2",
+        "label": "Garder la nouvelle date avec deux intervenants en direct et trois en vidéo",
+        "category": "ajuster"
+      },
+      {
+        "id": "3",
+        "label": "Annuler le report et tenir vendredi dans une salle de cours de 100 places",
+        "category": "changer"
+      }
+    ]
+  },
+  "bilans": {
+    "A_1": {
+      "turning_point": "Le tournant est le décompte des confirmations : la salle choisie ne suffit pas.",
+      "pivot_evaluation": "Garder la petite salle et limiter l'accès respecte la sécurité, mais laisse des inscrits dehors. La décision est claire, son coût aussi.",
+      "failure_type": "complexe",
+      "outcome": "80 personnes assistent aux conférences. Les autres reçoivent les enregistrements, avec des retours mitigés.",
+      "key_takeaway": "Vérifier la demande réelle avant de choisir la capacité évite de devoir trier les participants."
+    },
+    "A_2": {
+      "turning_point": "Le tournant est le décompte des confirmations : la salle choisie ne suffit pas.",
+      "pivot_evaluation": "Ajouter une retransmission dans une salle voisine absorbe le surplus sans tout reprendre. L'ajustement s'appuie sur le chiffre découvert jeudi.",
+      "failure_type": "intelligent",
+      "outcome": "Tout le monde peut suivre : 80 personnes en salle, les autres en retransmission à côté. L'ambiance est différente, mais l'événement a lieu.",
+      "key_takeaway": "Quand une ressource manque, la compléter vaut souvent mieux que la remplacer."
+    },
+    "A_3": {
+      "turning_point": "Le tournant est le décompte des confirmations : la salle choisie ne suffit pas.",
+      "pivot_evaluation": "Chercher une grande salle à la dernière minute demande beaucoup d'énergie à une équipe de quatre personnes, sans garantie.",
+      "failure_type": "complexe",
+      "outcome": "Une grande salle est trouvée jeudi soir, loin du campus. Un tiers des inscrits ne fait pas le déplacement.",
+      "key_takeaway": "Un changement radical tardif se compare à ce qu'il coûte en énergie et en accessibilité."
+    },
+    "B_1": {
+      "turning_point": "Le tournant est la découverte des contraintes de connexion de certains intervenants et participants.",
+      "pivot_evaluation": "Garder le format en ligne mais sécuriser les deux interventions à risque traite précisément le problème découvert, sans tout réorganiser.",
+      "failure_type": "intelligent",
+      "outcome": "Les interventions préenregistrées passent sans coupure, les questions se posent par écrit et les retours sont bons.",
+      "key_takeaway": "Préparer un plan qui marche même quand le réseau ne suit pas, c'est concevoir pour l'échec."
+    },
+    "B_2": {
+      "turning_point": "Le tournant est la découverte des contraintes de connexion de certains intervenants et participants.",
+      "pivot_evaluation": "Une salle de visionnage aide ceux qui ont peu de données, mais ne règle pas la connexion des intervenants.",
+      "failure_type": "complexe",
+      "outcome": "Les participants sur place suivent confortablement ; deux interventions sont coupées à plusieurs reprises.",
+      "key_takeaway": "Une solution doit viser la cause du problème, pas seulement l'un de ses effets."
+    },
+    "B_3": {
+      "turning_point": "Le tournant est la découverte des contraintes de connexion de certains intervenants et participants.",
+      "pivot_evaluation": "Revenir à une salle physique sans en avoir trouvé une oblige à tout réorganiser en deux jours, avec une seule piste.",
+      "failure_type": "basique",
+      "outcome": "Une salle de cours de 100 places est obtenue de justesse ; l'organisation est tendue et une partie du public reste dehors.",
+      "key_takeaway": "Avant de changer de format, vérifier que la nouvelle option existe vraiment."
+    },
+    "C_1": {
+      "turning_point": "Le tournant est la réponse des intervenants : la nouvelle date ne convient pas à la majorité.",
+      "pivot_evaluation": "Garder la nouvelle date sans la moitié des intervenants vide le programme d'une grande partie de son contenu.",
+      "failure_type": "basique",
+      "outcome": "La journée a lieu avec deux intervenants et deux remplaçants trouvés à la hâte. Les participants la trouvent inégale.",
+      "key_takeaway": "Avant de reporter, demander les disponibilités de ceux sans qui l'événement n'existe pas."
+    },
+    "C_2": {
+      "turning_point": "Le tournant est la réponse des intervenants : la nouvelle date ne convient pas à la majorité.",
+      "pivot_evaluation": "Mêler direct et vidéo garde la nouvelle date et le contenu, mais demande un travail de préparation important.",
+      "failure_type": "complexe",
+      "outcome": "Le programme est complet ; les vidéos, enregistrées vite, sont de qualité inégale.",
+      "key_takeaway": "Un programme peut se recomposer : l'important est ce que le public vient chercher, pas le format exact."
+    },
+    "C_3": {
+      "turning_point": "Le tournant est la réponse des intervenants : la nouvelle date ne convient pas à la majorité.",
+      "pivot_evaluation": "Revenir au vendredi, où tous les intervenants sont libres, s'appuie sur l'information nouvelle et la communique en un seul message clair.",
+      "failure_type": "intelligent",
+      "outcome": "Un message unique part le soir même. Vendredi, 100 personnes assistent à un programme resserré avec les cinq intervenants.",
+      "key_takeaway": "Annuler sa propre décision est sain quand une information nouvelle le justifie, à condition de le dire clairement."
+    }
+  }
+}
